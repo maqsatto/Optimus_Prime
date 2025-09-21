@@ -22,6 +22,9 @@ h1 {
 
 .form-group {
     margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 label {
@@ -29,6 +32,20 @@ label {
     margin-bottom: 6px;
     color: #3a4a5d;
     font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cfd8dc;
+    border-radius: 6px;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    display: block;
+    text-align: center;
 }
 
 select {
@@ -54,8 +71,6 @@ button[type="submit"] {
     opacity: 0.7;
     margin-top: 10px;
 }
-
-/* ...existing code... */
 
 .navbar {
     background: #2d3a4b;
@@ -88,4 +103,32 @@ button[type="submit"] {
 .navbar a:hover,
 .navbar a.active {
     color: #6c63ff;
+}
+
+.not-registered {
+    background: #ffeaea;
+    border: 1px solid #ff4d4d;
+    color: #b30000;
+    padding: 24px;
+    margin: 40px auto;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(255, 77, 77, 0.1);
+}
+
+.not-registered button {
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 16px;
+    transition: background 0.2s;
+}
+
+.not-registered button:hover {
+    background: #b30000;
 }

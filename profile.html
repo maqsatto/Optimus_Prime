@@ -14,8 +14,26 @@
             <li><a href="profile.html">Profile</a></li>
         </ul>
     </nav>
-    <div class="container">
-        <!-- ...existing code... -->
+    <div class="container" id="profile-container">
+        <!-- Profile info will go here if logged in -->
     </div>
+    <script>
+        // Simulate login check
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const container = document.getElementById('profile-container');
+        if (!isLoggedIn) {
+            container.innerHTML = `
+                <div class="not-registered">
+                    <p>You are not registered.</p>
+                    <button onclick="window.location.href='register.html'">Register</button>
+                </div>
+            `;
+        } else {
+            container.innerHTML = `
+                <h2>Welcome to your profile!</h2>
+                <!-- Add more profile details here -->
+            `;
+        }
+    </script>
 </body>
 </html>
