@@ -1,4 +1,3 @@
-/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +6,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #000000; /* Black background */
-  color: #FFD700; /* Yellow text */
+  background-color: #000000;
+  color: #FFD700;
   line-height: 1.6;
 }
 
@@ -26,8 +25,8 @@ a {
 
 /* Header */
 header {
-  background-color: #000000; /* Black background */
-  color: #FFD700; /* Yellow text */
+  background-color: #000000;
+  color: #FFD700;
   padding: 1.5rem 0;
 }
 
@@ -45,25 +44,25 @@ nav ul {
 
 nav ul li {
   margin: 0 1rem;
-  border: 2px solid #FFD700; /* Yellow border around each menu item */
+  border: 2px solid #FFD700;
   border-radius: 5px;
   padding: 10px 20px;
 }
 
 nav ul li a {
-  color: #FFD700; /* Yellow links */
+  color: #FFD700;
   font-size: 1.1rem;
   font-weight: 400;
   transition: color 0.3s;
 }
 
 nav ul li a:hover {
-  color: #FF6347; /* Yellow to orange on hover */
+  color: #FF6347;
 }
 
 .hero {
-  background: #000000; /* Black background */
-  color: #FFD700; /* Yellow text */
+  background: #000000;
+  color: #FFD700;
   padding: 5rem 0;
   text-align: center;
 }
@@ -199,6 +198,14 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+
+.footer-names {
+  color: #222;         /* Very dark gray, appears "blacker" than yellow */
+  font-size: 0.95rem;  /* Slightly smaller */
+  margin-top: 0.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* PC Gallery */
