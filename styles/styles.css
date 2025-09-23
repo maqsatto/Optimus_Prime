@@ -1,23 +1,33 @@
 body {
+    height: 100%;
     background: #f4f6fa;
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
-    max-width: 400px;
+    max-width: auto;
     margin: 40px auto;
-    background: #fff;
+    background: #f4f6fa;
     border-radius: 10px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     padding: 32px 24px;
+    flex: 1;
 }
 
 h1 {
     text-align: center;
+    margin-bottom: 0;
+    color: #2d3a4b;
+}
+h3 {
+    text-align: center;
     margin-bottom: 24px;
     color: #2d3a4b;
+    font-weight: 400;
 }
 
 .form-group {
@@ -83,7 +93,7 @@ button[type="submit"] {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .navbar li {
@@ -95,7 +105,7 @@ button[type="submit"] {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    padding: 18px 0;
+    padding: 18px 24px;
     transition: color 0.2s;
     font-size: 1.08em;
 }
@@ -170,4 +180,58 @@ button[type="submit"] {
     padding: 8px 0;
     font-size: 1em;
     cursor: not-allowed;
+}
+
+
+footer {
+    margin-top: 24px;
+    padding: 24px;
+    background: #f4f6fa;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    background-color: #2d3a4b;
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 6px;
+    color: #ffffff;
+}
+
+footer strong {
+    color: #ffffff;
+}
+
+.navbar a.active {
+    background-color: #6c63ff;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.pc-card:hover {
+    background-color: #2d3a4b;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border: black 1px solid;
+    transform: translateY(-4px);
+    transition: all 0.2s ease-in-out;
+}
+
+.list-features {
+    list-style: none;
+    padding: 0;
+    margin-top: 24px;
+}
+.list-features li {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 1.1em;
+    color: #3a4a5d;
+    background-color: #2d3a4b;
 }
