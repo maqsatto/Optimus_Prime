@@ -203,10 +203,13 @@ footer {
 
 /* PC Gallery */
 .pc-gallery {
+  margin-top: 4rem;
+}
+
+.pc-gallery .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   gap: 2rem;
-  margin-top: 4rem;
 }
 
 .pc-item {
@@ -241,4 +244,74 @@ footer {
   font-size: 1.2rem;
   color: #FFD700; /* Yellow text for prices */
   font-weight: bold;
+}
+
+/* PC Configurator Section */
+.pc-configurator {
+  background: #111111;
+  border-radius: 16px;
+  border: 2px solid #FFD700;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+  margin: 3rem auto 4rem auto;
+  max-width: 600px;
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+
+.pc-configurator h2 {
+  color: #FFD700;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.config-item {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.config-item label {
+  color: #FFD700;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.config-item select {
+  background: #222;
+  color: #FFD700;
+  border: 1.5px solid #FFD700;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.config-item select:focus {
+  border-color: #FF6347;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #FFD700 60%, #FF6347 100%);
+  color: #111;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255,215,0,0.15);
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #FF6347 60%, #FFD700 100%);
+  color: #fff;
 }
