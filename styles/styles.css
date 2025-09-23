@@ -255,3 +255,29 @@ footer {
   color: #FFD700; /* Yellow text for prices */
   font-weight: bold;
 }
+/* Profile Page Styles */
+.profile-section {
+  padding: 4rem 0;
+}
+
+.profile-card {
+  background-color: #1a1a1a;
+  border: 1px solid #FFD700;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-header .profile-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #FFD700;
+  margin-bottom: 1rem;
+}
+
+.profile-header h2 {
+  font-size: 2.5rem;
+  color: #FFD700;
+}
