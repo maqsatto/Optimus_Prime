@@ -62,7 +62,7 @@ nav ul li a:hover {
 }
 
 nav ul li a.active {
-  color: #FF6347; /* Orange for active link */
+  color: #FF6347;
   font-weight: 600;
 }
 
@@ -84,8 +84,8 @@ nav ul li a.active {
 }
 
 .hero .btn {
-  background-color: #FFD700; /* Yellow button */
-  color: #000000; /* Black text */
+  background-color: #FFD700;
+  color: #000000;
   padding: 1rem 2rem;
   font-size: 1.1rem;
   border-radius: 30px;
@@ -93,8 +93,8 @@ nav ul li a.active {
 }
 
 .hero .btn:hover {
-  background-color: #FF6347; /* Orange button on hover */
-  color: white; /* White text on hover */
+  background-color: #FF6347;
+  color: white;
 }
 
 /* Features Section */
@@ -108,13 +108,13 @@ nav ul li a.active {
 }
 
 .feature {
-  background: #000000; /* Black background */
+  background: #000000;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 30%;
-  border: 2px solid #FFD700; /* Yellow border */
+  border: 2px solid #FFD700;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -131,37 +131,37 @@ nav ul li a.active {
 
 .feature h3 {
   font-size: 1.6rem;
-  color: #FFD700; /* Yellow text for headers */
+  color: #FFD700;
   margin-bottom: 1rem;
 }
 
 .feature p {
   font-size: 1rem;
-  color: #FFD700; /* Yellow text for descriptions */
+  color: #FFD700;
 }
 
 /* Authentication Forms */
 .auth-form {
-  background-color: #000000; /* Black background */
+  background-color: #000000;
   padding: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 500px;
   margin: 0 auto;
   border-radius: 10px;
-  border: 2px solid #FFD700; /* Yellow border */
+  border: 2px solid #FFD700;
 }
 
 .auth-form h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #FFD700; /* Yellow text */
+  color: #FFD700;
 }
 
 .auth-form label {
   display: block;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
-  color: #FFD700; /* Yellow text */
+  color: #FFD700;
 }
 
 .auth-form input {
@@ -175,8 +175,8 @@ nav ul li a.active {
 .auth-form button {
   width: 100%;
   padding: 1rem;
-  background-color: #FFD700; /* Yellow button */
-  color: #000000; /* Black text */
+  background-color: #FFD700;
+  color: #000000;
   font-size: 1.1rem;
   border: none;
   border-radius: 5px;
@@ -185,7 +185,7 @@ nav ul li a.active {
 }
 
 .auth-form button:hover {
-  background-color: #FF6347; /* Orange button on hover */
+  background-color: #FF6347;
 }
 
 .auth-form p {
@@ -194,23 +194,23 @@ nav ul li a.active {
 }
 
 .auth-form a {
-  color: #FFD700; /* Yellow links */
+  color: #FFD700;
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #000000; /* Black background */
-  color: #FFD700; /* Yellow text */
+  background-color: #000000;
+  color: #FFD700;
   position: fixed;
   width: 100%;
   bottom: 0;
 }
 
 .footer-names {
-  color: #222;         /* Very dark gray, appears "blacker" than yellow */
-  font-size: 0.95rem;  /* Slightly smaller */
+  color: #222;
+  font-size: 0.95rem;
   margin-top: 0.2rem;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -224,24 +224,24 @@ footer {
 .pc-gallery .container {
   display: grid;
   column-gap: 2rem;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 4rem;
 }
 
 .pc-item {
-  background-color: #000000; /* Black background */
+  background-color: #000000;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  border: 2px solid #FFD700; /* Yellow border */
+  border: 2px solid #FFD700;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .pc-item:hover {
   transform: translateY(-10px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Hover effect with shadow */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .pc-item img {
@@ -253,15 +253,16 @@ footer {
 
 .pc-item h3 {
   font-size: 1.6rem;
-  color: #FFD700; /* Yellow text for PC model names */
+  color: #FFD700;
   margin-bottom: 1rem;
 }
 
 .pc-item p {
   font-size: 1.2rem;
-  color: #FFD700; /* Yellow text for prices */
+  color: #FFD700;
   font-weight: bold;
 }
+
 /* Profile Page Styles */
 .profile-section {
   padding: 4rem 0;
@@ -287,4 +288,74 @@ footer {
 .profile-header h2 {
   font-size: 2.5rem;
   color: #FFD700;
+}
+
+/* PC Configurator Section */
+.pc-configurator {
+  background: #111111;
+  border-radius: 16px;
+  border: 2px solid #FFD700;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+  margin: 3rem auto 4rem auto;
+  max-width: 600px;
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+
+.pc-configurator h2 {
+  color: #FFD700;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.config-item {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.config-item label {
+  color: #FFD700;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.config-item select {
+  background: #222;
+  color: #FFD700;
+  border: 1.5px solid #FFD700;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.config-item select:focus {
+  border-color: #FF6347;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #FFD700 60%, #FF6347 100%);
+  color: #111;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255,215,0,0.15);
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #FF6347 60%, #FFD700 100%);
+  color: #fff;
 }
