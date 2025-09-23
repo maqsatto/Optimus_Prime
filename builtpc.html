@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Configurator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">  
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Build Your Custom PC</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="builtedpc.html">Pre-built PCs</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="pc-configurator">
+    <div class="container">
+      <h2>Customize Your PC</h2>
+      
+      <!-- SSD Selection -->
+      <div class="config-item">
+        <label for="ssd">Select SSD:</label>
+        <select id="ssd" name="ssd">
+          <option value="ssd1">SSD 120GB</option>
+          <option value="ssd2">SSD 250GB</option>
+          <option value="ssd3">SSD 500GB</option>
+          <option value="ssd4">SSD 1TB</option>
+          <option value="ssd5">SSD 2TB</option>
+          <option value="ssd6">SSD 4TB</option>
+          <option value="ssd7">SSD 8TB</option>
+          <option value="ssd8">SSD 16TB</option>
+          <option value="ssd9">SSD 32TB</option>
+          <option value="ssd10">SSD 64TB</option>
+        </select>
+      </div>
+
+      <!-- RAM Selection -->
+      <div class="config-item">
+        <label for="ram">Select RAM:</label>
+        <select id="ram" name="ram">
+          <option value="ram1">8GB DDR4</option>
+          <option value="ram2">16GB DDR4</option>
+          <option value="ram3">32GB DDR4</option>
+          <option value="ram4">64GB DDR4</option>
+          <option value="ram5">128GB DDR4</option>
+          <option value="ram6">16GB DDR5</option>
+          <option value="ram7">32GB DDR5</option>
+          <option value="ram8">64GB DDR5</option>
+          <option value="ram9">128GB DDR5</option>
+          <option value="ram10">256GB DDR5</option>
+        </select>
+      </div>
+
+      <!-- CPU Selection -->
+      <div class="config-item">
+        <label for="cpu">Select CPU:</label>
+        <select id="cpu" name="cpu">
+          <option value="cpu1">Intel Core i5 10600K</option>
+          <option value="cpu2">Intel Core i7 10700K</option>
+          <option value="cpu3">Intel Core i9 10900K</option>
+          <option value="cpu4">AMD Ryzen 5 3600</option>
+          <option value="cpu5">AMD Ryzen 7 3700X</option>
+          <option value="cpu6">AMD Ryzen 9 3900X</option>
+          <option value="cpu7">Intel Core i5 11600K</option>
+          <option value="cpu8">Intel Core i7 11700K</option>
+          <option value="cpu9">AMD Ryzen 5 5600X</option>
+          <option value="cpu10">AMD Ryzen 7 5800X</option>
+        </select>
+      </div>
+
+      <!-- GPU Selection -->
+      <div class="config-item">
+        <label for="gpu">Select GPU:</label>
+        <select id="gpu" name="gpu">
+          <option value="gpu1">NVIDIA GTX 1650</option>
+          <option value="gpu2">NVIDIA GTX 1660</option>
+          <option value="gpu3">NVIDIA RTX 3060</option>
+          <option value="gpu4">NVIDIA RTX 3070</option>
+          <option value="gpu5">NVIDIA RTX 3080</option>
+          <option value="gpu6">NVIDIA RTX 3090</option>
+          <option value="gpu7">AMD RX 5700 XT</option>
+          <option value="gpu8">AMD RX 6800 XT</option>
+          <option value="gpu9">AMD RX 6900 XT</option>
+          <option value="gpu10">NVIDIA TITAN RTX</option>
+        </select>
+      </div>
+
+      <!-- Motherboard Selection -->
+      <div class="config-item">
+        <label for="motherboard">Select Motherboard:</label>
+        <select id="motherboard" name="motherboard">
+          <option value="mb1">MSI Z490-A PRO</option>
+          <option value="mb2">ASUS ROG Strix Z590-E</option>
+          <option value="mb3">Gigabyte AORUS X570</option>
+          <option value="mb4">ASUS TUF Gaming B550</option>
+          <option value="mb5">MSI MPG B550</option>
+          <option value="mb6">Gigabyte B550 AORUS</option>
+          <option value="mb7">ASRock B550M Pro4</option>
+          <option value="mb8">Intel Z590 Chipset</option>
+          <option value="mb9">ASUS ROG Crosshair VIII</option>
+          <option value="mb10">MSI MAG Z590</option>
+        </select>
+      </div>
+
+      <div class="config-item">
+        <label for="psu">Select Power Supply (PSU):</label>
+        <select id="psu" name="psu">
+          <option value="psu1">Corsair 550W</option>
+          <option value="psu2">EVGA 650W</option>
+          <option value="psu3">Cooler Master 750W</option>
+          <option value="psu4">Seasonic 850W</option>
+          <option value="psu5">Corsair 1000W</option>
+          <option value="psu6">Be Quiet! 1200W</option>
+          <option value="psu7">Antec 650W</option>
+          <option value="psu8">Thermaltake 750W</option>
+          <option value="psu9">NZXT 850W</option>
+          <option value="psu10">Gigabyte 1000W</option>
+        </select>
+      </div>
+
+      <!-- PC Case (Corpus) Selection -->
+      <div class="config-item">
+        <label for="case">Select PC Case (Corpus):</label>
+        <select id="case" name="case">
+          <option value="case1">NZXT H510</option>
+          <option value="case2">Corsair 4000D</option>
+          <option value="case3">Fractal Design Meshify C</option>
+          <option value="case4">Cooler Master MasterBox Q300L</option>
+          <option value="case5">Phanteks Eclipse P300A</option>
+          <option value="case6">Lian Li PC-O11 Dynamic</option>
+          <option value="case7">Thermaltake V200</option>
+          <option value="case8">Corsair 275R</option>
+          <option value="case9">be quiet! Pure Base 500</option>
+          <option value="case10">MSI MAG VAMPIRIC 100</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn">Build My PC</button>
+    </div>
+  </section>
+

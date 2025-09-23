@@ -1,47 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-    <link rel="stylesheet" href="styles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">  
 </head>
 <body>
-    <nav class="navbar">
+  <header>
+    <div class="container">
+      <h1>Your Profile</h1>
+      <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="buildpc.html">Build PC</a></li>
-            <li><a href="builtedpc.html">Built PC</a></li>
-            <li><a href="profile.html" class="active">Profile</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="builtpc.html">Build Your PC</a></li>
+          <li><a href="builtedpc.html">Pre-built PCs</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="login.html">Login</a></li>
         </ul>
-    </nav>
-    <div class="container" id="profile-container">
-        <!-- Profile info will go here if logged in -->
+      </nav>
     </div>
-    <script>
-        // Simulate login check
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        const container = document.getElementById('profile-container');
-        if (!isLoggedIn) {
-            container.innerHTML = `
-                <div class="not-registered">
-                    <p>You are not registered.</p>
-                    <button onclick="window.location.href='register.html'">Register</button>
-                </div>
-            `;
-        } else {
-            container.innerHTML = `
-                <h2>Welcome to your profile!</h2>
-                <!-- Add more profile details here -->
-            `;
-        }
-    </script>
-    <footer>
-        <strong>Team Members:</strong>
-        <ul>
-            <li>Daniyal Sandybaev</li>
-            <li>Maqsat Syrtbay</li>
-            <li>Bekzat Murat</li>
-        </ul>
-    </footer>
+  </header>
+
+  <section class="profile">
+    <div class="container">
+      <h2>Welcome, [User Name]</h2>
+      <p>Your registration status: Active</p>
+      <button>Edit Profile</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Optimus Prime. All rights reserved.</p>
+  </footer>
 </body>
 </html>
