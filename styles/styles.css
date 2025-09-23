@@ -21,6 +21,7 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 0;
+  
 }
 
 /* Header */
@@ -60,6 +61,11 @@ nav ul li a:hover {
   color: #FF6347;
 }
 
+nav ul li a.active {
+  color: #FF6347; /* Orange for active link */
+  font-weight: 600;
+}
+
 .hero {
   background: #000000;
   color: #FFD700;
@@ -92,10 +98,12 @@ nav ul li a:hover {
 }
 
 /* Features Section */
-.features {
+.features .container {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+}
+.features {
   margin-top: 4rem;
 }
 
@@ -215,8 +223,10 @@ footer {
 
 .pc-gallery .container {
   display: grid;
+  column-gap: 2rem;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   gap: 2rem;
+  margin-top: 4rem;
 }
 
 .pc-item {
@@ -252,73 +262,29 @@ footer {
   color: #FFD700; /* Yellow text for prices */
   font-weight: bold;
 }
-
-/* PC Configurator Section */
-.pc-configurator {
-  background: #111111;
-  border-radius: 16px;
-  border: 2px solid #FFD700;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
-  margin: 3rem auto 4rem auto;
-  max-width: 600px;
-  padding: 2.5rem 2rem 2rem 2rem;
+/* Profile Page Styles */
+.profile-section {
+  padding: 4rem 0;
 }
 
-.pc-configurator h2 {
-  color: #FFD700;
+.profile-card {
+  background-color: #1a1a1a;
+  border: 1px solid #FFD700;
+  border-radius: 10px;
+  padding: 2rem;
   text-align: center;
   margin-bottom: 2rem;
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: 1px;
 }
 
-.config-item {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.profile-header .profile-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #FFD700;
+  margin-bottom: 1rem;
 }
 
-.config-item label {
+.profile-header h2 {
+  font-size: 2.5rem;
   color: #FFD700;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-bottom: 0.2rem;
-}
-
-.config-item select {
-  background: #222;
-  color: #FFD700;
-  border: 1.5px solid #FFD700;
-  border-radius: 6px;
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.config-item select:focus {
-  border-color: #FF6347;
-}
-
-.btn {
-  display: block;
-  width: 100%;
-  background: linear-gradient(90deg, #FFD700 60%, #FF6347 100%);
-  color: #111;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 30px;
-  padding: 1rem 0;
-  margin-top: 1.5rem;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(255,215,0,0.15);
-  transition: background 0.3s, color 0.3s;
-}
-
-.btn:hover {
-  background: linear-gradient(90deg, #FF6347 60%, #FFD700 100%);
-  color: #fff;
 }

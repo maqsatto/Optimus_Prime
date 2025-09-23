@@ -16,23 +16,49 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="builtpc.html">Build Your PC</a></li>
           <li><a href="builtedpc.html">Pre-built PCs</a></li>
-          <li><a href="profile.html">Profile</a></li>
+          <li><a href="profile.html" class="active">Profile</a></li>
           <li><a href="login.html">Login</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="profile">
+  <section class="profile-section">
     <div class="container">
-      <h2>Welcome, [User Name]</h2>
-      <p>Your registration status: Active</p>
-      <button>Edit Profile</button>
+      <div class="profile-card">
+        <div class="profile-header">
+          <img src="https://via.placeholder.com/150" alt="User Avatar" class="profile-avatar">
+          <h2>Welcome, [User Name]</h2>
+          <p class="user-email">[user.email@example.com]</p>
+        </div>
+        <div class="profile-details">
+          <h3>Profile Details</h3>
+          <ul>
+            <li><strong>Join Date:</strong> January 1, 2025</li>
+            <li><strong>Registration Status:</strong> <span class="status-active">Active</span></li>
+            <li><strong>Saved Builds:</strong> 3</li>
+          </ul>
+          <a href="#" class="btn">Edit Profile</a>
+        </div>
+      </div>
+
+      <div class="profile-activity">
+        <h3>Your Recent Activity</h3>
+        <div class="activity-item">
+          <p><strong>Saved a new PC build:</strong> "Gaming Beast" - September 22, 2025</p>
+        </div>
+        <div class="activity-item">
+          <p><strong>Updated profile information</strong> - September 20, 2025</p>
+        </div>
+        <div class="activity-item">
+          <p><strong>Logged in</strong> - September 20, 2025</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Optimus Prime. All rights reserved.</p>
+    <p>&copy; 2025 Optimus Prime. Daniyal Sandybaev, Maqsat Syrtbay, Bekzat Murat.</p>
   </footer>
 </body>
 </html>
