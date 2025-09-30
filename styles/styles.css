@@ -262,13 +262,10 @@ footer {
   color: #FFD700;
   font-weight: bold;
 }
-
 /* Profile Page Styles */
 .profile-section {
   padding: 4rem 0;
-}
-
-.profile-card {
+}.profile-card {
   background-color: #1a1a1a;
   border: 1px solid #FFD700;
   border-radius: 10px;
@@ -358,4 +355,30 @@ footer {
 .btn:hover {
   background: linear-gradient(90deg, #FF6347 60%, #FFD700 100%);
   color: #fff;
+}/* Header Layout Fix */
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  flex: 1;
+}
+
+.logo-img {
+  max-height: 200px;
+}
+
+nav {
+  flex: 2;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  gap: 1rem;
 }
