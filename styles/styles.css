@@ -355,7 +355,9 @@ footer {
 .btn:hover {
   background: linear-gradient(90deg, #FF6347 60%, #FFD700 100%);
   color: #fff;
-}/* Header Layout Fix */
+}
+
+/* Header Layout Fix */
 header .container {
   display: flex;
   justify-content: space-between;
@@ -381,4 +383,77 @@ nav ul {
   align-items: center;
   list-style: none;
   gap: 1rem;
+}
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    grid-template-columns: 250px 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: hidden;  /* Prevent horizontal scroll */
+}
+
+.header {
+    grid-area: header;
+    background: #000000;
+    border: 2px solid #FFD700;
+    padding: 20px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #000000;
+    border: 2px solid #FFD700;
+    padding: 20px;
+    color: #FFD700;
+}
+
+.sidebar h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: #FFD700;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #FF6347;
+}
+
+.main-content {
+    grid-area: main;
+    background: #000000;
+    border: 2px solid #FFD700;
+    padding: 20px;
+}
+
+.footer {
+    grid-area: footer;
+    background: #000000;
+    border: 2px solid #FFD700;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-left: -20px;  /* Compensate for grid container padding */
+    margin-bottom: -20px;  /* Compensate for grid container padding */
+    box-sizing: border-box;
 }

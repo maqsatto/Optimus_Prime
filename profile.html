@@ -8,62 +8,72 @@
   <link rel="stylesheet" href="styles/styles.css">  
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="logo">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSno8jwWPOuc-r0WvQVjuuYrqX0ShAPaMzidg&s" alt="Logo" class="logo-img" >
-      </div>
-    <div class="container">
-      <h2>Your Profile</h2>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="builtpc.html">Build Your PC</a></li>
-          <li><a href="builtedpc.html">Pre-built PCs</a></li>
-          <li><a href="profile.html" class="active">Profile</a></li>
-          <li><a href="login.html">Login</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <section class="profile-section">
-    <div class="container">
-      <div class="profile-card">
-        <div class="profile-header">
-          <img src="https://cdn-icons-png.flaticon.com/128/11873/11873140.png" alt="User Avatar" class="profile-avatar">
-          <h2>Welcome, [User Name]</h2>
-          <p class="user-email">[user.email@example.com]</p>
+  <div class="grid-container">
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSno8jwWPOuc-r0WvQVjuuYrqX0ShAPaMzidg&s" alt="Logo" class="logo-img">
         </div>
-        <div class="profile-details">
-          <h3>Profile Details</h3>
+        <h2>Your Profile</h2>
+        <nav>
           <ul>
-            <li><strong>Join Date:</strong> January 1, 2025</li>
-            <li><strong>Registration Status:</strong> <span class="status-active">Active</span></li>
-            <li><strong>Saved Builds:</strong> 3</li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html" class="active">Profile</a></li>
+            <li><a href="login.html">Logout</a></li>
           </ul>
-          <a href="#" class="btn">Edit Profile</a>
-        </div>
+        </nav>
       </div>
+    </header>
 
-      <div class="profile-activity">
-        <h3>Your Recent Activity</h3>
-        <div class="activity-item">
-          <p><strong>Saved a new PC build:</strong> "Gaming Beast" - September 22, 2025</p>
+    <aside class="sidebar">
+      <h3>Account</h3>
+      <ul>
+        <li><a href="#">Edit Profile</a></li>
+        <li><a href="#">Orders</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <section class="profile-section">
+        <div class="container">
+          <div class="profile-card">
+            <div class="profile-header">
+              <img src="https://cdn-icons-png.flaticon.com/128/11873/11873140.png" alt="User Avatar" class="profile-avatar">
+              <h2>Welcome, [User Name]</h2>
+              <p class="user-email">[user.email@example.com]</p>
+            </div>
+            <div class="profile-details">
+              <h3>Profile Details</h3>
+              <ul>
+                <li><strong>Join Date:</strong> January 1, 2025</li>
+                <li><strong>Registration Status:</strong> <span class="status-active">Active</span></li>
+                <li><strong>Saved Builds:</strong> 3</li>
+              </ul>
+              <a href="#" class="btn">Edit Profile</a>
+            </div>
+          </div>
+
+          <div class="profile-activity">
+            <h3>Your Recent Activity</h3>
+            <div class="activity-item">
+              <p><strong>Saved a new PC build:</strong> "Gaming Beast" - September 22, 2025</p>
+            </div>
+            <div class="activity-item">
+              <p><strong>Updated profile information</strong> - September 20, 2025</p>
+            </div>
+            <div class="activity-item">
+              <p><strong>Logged in</strong> - September 20, 2025</p>
+            </div>
+          </div>
         </div>
-        <div class="activity-item">
-          <p><strong>Updated profile information</strong> - September 20, 2025</p>
-        </div>
-        <div class="activity-item">
-          <p><strong>Logged in</strong> - September 20, 2025</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <br><br><br><br><br>
-  <footer>
-    <p>&copy; 2025 Optimus Prime. All rights reserved.</p>
-    <div class="footer-names">Bekzat Murat | Daniyal Sandybaev | Maqsat Syrtbay</div>
-  </footer>
+      </section>
+      <br><br><br><br><br>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 Optimus Prime. All rights reserved.</p>
+      <div class="footer-names">Bekzat Murat | Daniyal Sandybaev | Maqsat Syrtbay</div>
+    </footer>
+  </div>
 </body>
 </html>

@@ -8,46 +8,53 @@
   <link rel="stylesheet" href="styles/styles.css">  
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="logo">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSno8jwWPOuc-r0WvQVjuuYrqX0ShAPaMzidg&s" alt="Logo" class="logo-img" >
+  <div class="grid-container">
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSno8jwWPOuc-r0WvQVjuuYrqX0ShAPaMzidg&s" alt="Logo" class="logo-img">
+        </div>
+        <h2>Login</h2>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html" class="active">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </nav>
       </div>
-    <div class="container">
-      <h2>Login Page</h2>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="builtpc.html">Build Your PC</a></li>
-          <li><a href="builtedpc.html">Pre-built PCs</a></li>
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="login.html" class="active">Login</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    </header>
 
+    <aside class="sidebar">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </aside>
 
+    <main class="main-content">
+      <section class="auth-form">
+        <div class="container">
+          <h2>Welcome Back!</h2>
+          <form action="profile.html" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
 
-  <section class="auth-form">
-    <div class="container">
-      <h2>Welcome Back!</h2>
-      <form action="profile.html" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+          </form>
+          <p>Don't have an account? <a href="register.html" style="color: aliceblue;">Register here</a></p>
+        </div>
+      </section>
+      <br><br><br><br><br>
+    </main>
 
-        <button type="submit">Login</button>
-      </form>
-      <p>Don't have an account? <a href="register.html" style="color: aliceblue;">Register here</a></p>
-    </div>
-  </section>
-  <br><br><br><br><br>
-  <footer>
-    <p>&copy; 2025 Optimus Prime. All rights reserved.</p>
-    <div class="footer-names">Bekzat Murat | Daniyal Sandybaev | Maqsat Syrtbay</div>
-  </footer>
+    <footer class="footer">
+      <p>&copy; 2025 Optimus Prime. All rights reserved.</p>
+      <div class="footer-names">Bekzat Murat | Daniyal Sandybaev | Maqsat Syrtbay</div>
+    </footer>
+  </div>
 </body>
 </html>
