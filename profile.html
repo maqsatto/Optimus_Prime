@@ -1,79 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/styles.css">  
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
-  <div class="grid-container">
-    <header class="header">
-      <div class="container">
-        <div class="logo">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSno8jwWPOuc-r0WvQVjuuYrqX0ShAPaMzidg&s" alt="Logo" class="logo-img">
-        </div>
-        <h2>Your Profile</h2>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="profile.html" class="active">Profile</a></li>
-            <li><a href="login.html">Logout</a></li>
-          </ul>
-        </nav>
+<body class="bg-black text-warning">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSno8jwWPOuc-r0WvQVjuuYrqX0ShAPaMzidg&s" alt="Logo" height="44" class="me-2">
+        <span class="fw-semibold text-warning">Optimus Prime</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navF">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navF">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="profile.html">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+        </ul>
       </div>
-    </header>
+    </div>
+  </nav>
 
-    <aside class="sidebar">
-      <h3>Account</h3>
-      <ul>
-        <li><a href="#">Edit Profile</a></li>
-        <li><a href="#">Orders</a></li>
-      </ul>
-    </aside>
-
-    <main class="main-content">
-      <section class="profile-section">
-        <div class="container">
-          <div class="profile-card">
-            <div class="profile-header">
-              <img src="https://cdn-icons-png.flaticon.com/128/11873/11873140.png" alt="User Avatar" class="profile-avatar">
-              <h2>Welcome, [User Name]</h2>
-              <p class="user-email">[user.email@example.com]</p>
-            </div>
-            <div class="profile-details">
-              <h3>Profile Details</h3>
-              <ul>
-                <li><strong>Join Date:</strong> January 1, 2025</li>
-                <li><strong>Registration Status:</strong> <span class="status-active">Active</span></li>
-                <li><strong>Saved Builds:</strong> 3</li>
-              </ul>
-              <a href="#" class="btn">Edit Profile</a>
-            </div>
-          </div>
-
-          <div class="profile-activity">
-            <h3>Your Recent Activity</h3>
-            <div class="activity-item">
-              <p><strong>Saved a new PC build:</strong> "Gaming Beast" - September 22, 2025</p>
-            </div>
-            <div class="activity-item">
-              <p><strong>Updated profile information</strong> - September 20, 2025</p>
-            </div>
-            <div class="activity-item">
-              <p><strong>Logged in</strong> - September 20, 2025</p>
-            </div>
-          </div>
+  <main class="container my-4">
+    <div class="row g-4">
+      <div class="col-12 col-md-5">
+        <div class="card bg-black border-warning p-4 text-center">
+          <img src="https://cdn-icons-png.flaticon.com/128/11873/11873140.png" class="rounded-circle mb-3 profile-avatar" alt="User Avatar" width="150" height="150">
+          <h3 class="text-warning">Welcome, [User Name]</h3>
+          <p class="text-warning">user.email@example.com</p>
+          <a class="btn btn-warning w-100" href="#">Edit Profile</a>
         </div>
-      </section>
-      <br><br><br><br><br>
-    </main>
+      </div>
 
-    <footer class="footer">
-      <p>&copy; 2025 Optimus Prime. All rights reserved.</p>
-      <div class="footer-names">Bekzat Murat | Daniyal Sandybaev | Maqsat Syrtbay</div>
-    </footer>
-  </div>
+      <div class="col-12 col-md-7">
+        <div class="card bg-black border-warning p-4">
+          <h4 class="text-warning">Recent Activity</h4>
+          <ul class="list-unstyled text-warning mb-0">
+            <li class="mb-2">Saved a new PC build: "Gaming Beast" - Sep 22, 2025</li>
+            <li class="mb-2">Updated profile information - Sep 20, 2025</li>
+            <li class="mb-2">Logged in - Sep 20, 2025</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-black border-top border-warning text-center py-3">
+    <div class="container">
+      <small class="text-warning">&copy; 2025 Optimus Prime. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
