@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body class="bg-black text-warning">
+<body class="bg-black text-warning d-flex flex-column min-vh-100">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
     <div class="container">
@@ -29,23 +29,90 @@
     </div>
   </nav>
 
-  <main class="container my-4">
+  <main class="container my-4 flex-grow-1">
     <h2 class="text-center mb-4 text-warning">Our Pre-built PC Models</h2>
+
+    <!-- Added: PC Catalogue label + bordered, smaller carousel with bold yellow side buttons -->
+    <section class="mb-4">
+      <h3 class="text-center text-warning mb-3">PC Catalogue</h3>
+
+      <div class="mx-auto border border-warning rounded p-2 bg-black" style="max-width:980px;">
+        <div id="pcCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Pre-built PC carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#pcCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#pcCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#pcCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row gx-2">
+                <div class="col-4">
+                  <img src="https://optim.tildacdn.com/tild6339-3434-4633-b731-653539323639/-/format/webp/Carbonlianli.png.webp" class="d-block w-100 rounded" alt="Carbon PC">
+                </div>
+                <div class="col-4">
+                  <img src="https://optim.tildacdn.com/tild3531-6638-4633-b930-613261323630/-/format/webp/Titan.png.webp" class="d-block w-100 rounded" alt="TITAN PC">
+                </div>
+                <div class="col-4">
+                  <img src="https://optim.tildacdn.com/tild6135-3734-4630-b831-393466383533/-/format/webp/Krypton_.png.webp" class="d-block w-100 rounded" alt="KRYPTON PC">
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="row gx-2">
+                <div class="col-4">
+                  <img src="https://optim.tildacdn.com/tild6230-6163-4162-a330-653163633965/-/format/webp/Radon_nv5s.png.webp" class="d-block w-100 rounded" alt="RADON PC">
+                </div>
+                <div class="col-4">
+                  <img src="https://optim.tildacdn.com/tild3439-6233-4037-b932-616361323265/-/format/webp/Lithium_50.png.webp" class="d-block w-100 rounded" alt="LITHIUM PC">
+                </div>
+                <div class="col-4">
+                  <img src="https://optim.tildacdn.com/tild3237-6262-4862-b233-356633313330/-/format/webp/Cobalt_Black.png.webp" class="d-block w-100 rounded" alt="COBALT PC">
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="row gx-2">
+                <div class="col-4">
+                  <img src="https://optim.tildacdn.com/tild3333-6239-4635-b435-643936353234/-/format/webp/__2025-09.png.webp" class="d-block w-100 rounded" alt="GOLD PC">
+                </div>
+                <div class="col-4">
+                  <img src="https://optim.tildacdn.com/tild3066-6336-4830-b237-323463636465/-/format/webp/Helium_Plus_.png.webp" class="d-block w-100 rounded" alt="HELIUM PLUS PC">
+                </div>
+                <div class="col-4">
+                  <img src="https://optim.tildacdn.com/tild3633-6234-4838-b835-613933363665/-/format/webp/Silver_Black.png.webp" class="d-block w-100 rounded" alt="SILVER PC">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bold yellow circular side buttons (use visible chevrons) -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#pcCarousel" data-bs-slide="prev" aria-label="Previous">
+            <span class="d-inline-flex align-items-center justify-content-center btn btn-warning rounded-circle fw-bold" style="width:46px;height:46px;color:#000;">‹</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#pcCarousel" data-bs-slide="next" aria-label="Next">
+            <span class="d-inline-flex align-items-center justify-content-center btn btn-warning rounded-circle fw-bold" style="width:46px;height:46px;color:#000;">›</span>
+          </button>
+        </div>
+      </div>
+    </section>
 
     <div class="row g-4">
       <!-- PC 1 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild6339-3434-4633-b731-653539323639/-/format/webp/Carbonlianli.png.webp" class="card-img-top" alt="Carbon PC">
           <div class="card-body">
-            <h5 class="card-title">Carbon PC</h5>
+            <h5 class="card-title">CARBON PC</h5>
             <p class="card-text fw-bold">360,000₸</p>
           </div>
         </div>
       </div>
       <!-- PC 2 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild3531-6638-4633-b930-613261323630/-/format/webp/Titan.png.webp" class="card-img-top" alt="Titan PC">
           <div class="card-body">
             <h5 class="card-title">TITAN PC</h5>
@@ -55,7 +122,7 @@
       </div>
       <!-- PC 3 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild6135-3734-4630-b831-393466383533/-/format/webp/Krypton_.png.webp" class="card-img-top" alt="KRYPTON PC">
           <div class="card-body">
             <h5 class="card-title">KRYPTON PC</h5>
@@ -65,7 +132,7 @@
       </div>
       <!-- PC 4 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild6230-6163-4162-a330-653163633965/-/format/webp/Radon_nv5s.png.webp" class="card-img-top" alt="RADON PC">
           <div class="card-body">
             <h5 class="card-title">RADON PC</h5>
@@ -75,7 +142,7 @@
       </div>
       <!-- PC 5 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild3439-6233-4037-b932-616361323265/-/format/webp/Lithium_50.png.webp" class="card-img-top" alt="LITHIUM PC">
           <div class="card-body">
             <h5 class="card-title">LITHIUM PC</h5>
@@ -85,7 +152,7 @@
       </div>
       <!-- PC 6 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild3237-6262-4862-b233-356633313330/-/format/webp/Cobalt_Black.png.webp" class="card-img-top" alt="COBALT PC">
           <div class="card-body">
             <h5 class="card-title">COBALT PC</h5>
@@ -95,7 +162,7 @@
       </div>
       <!-- PC 7 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild3333-6239-4635-b435-643936353234/-/format/webp/__2025-09.png.webp" class="card-img-top" alt="GOLD PC">
           <div class="card-body">
             <h5 class="card-title">GOLD PC</h5>
@@ -105,7 +172,7 @@
       </div>
       <!-- PC 8 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild3066-6336-4830-b237-323463636465/-/format/webp/Helium_Plus_.png.webp" class="card-img-top" alt="HELIUM PLUS PC">
           <div class="card-body">
             <h5 class="card-title">HELIUM PLUS PC</h5>
@@ -115,7 +182,7 @@
       </div>
       <!-- PC 9 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild3633-6234-4838-b835-613933363665/-/format/webp/Silver_Black.png.webp" class="card-img-top" alt="SILVER PC">
           <div class="card-body">
             <h5 class="card-title">SILVER PC</h5>
@@ -125,7 +192,7 @@
       </div>
       <!-- PC 10 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild3038-3066-4465-b366-353438366339/-/format/webp/Helium_1.png.webp" class="card-img-top" alt="HELIUM PC">
           <div class="card-body">
             <h5 class="card-title">HELIUM PC</h5>
@@ -135,7 +202,7 @@
       </div>
       <!-- PC 11 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild6663-3030-4162-b330-383261656466/-/format/webp/Bronze.png.webp" class="card-img-top" alt="BRONZE PC">
           <div class="card-body">
             <h5 class="card-title">BRONZE PC</h5>
@@ -145,7 +212,7 @@
       </div>
       <!-- PC 12 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild6463-3135-4039-b432-623736666536/-/format/webp/Cuprum_.png.webp" class="card-img-top" alt="CUPRUM PC">
           <div class="card-body">
             <h5 class="card-title">CUPRUM PC</h5>
@@ -155,7 +222,7 @@
       </div>
       <!-- PC 13 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild3266-3132-4065-b566-626236383330/-/format/webp/Ferrum_Black.png.webp" class="card-img-top" alt="FERRUM PC">
           <div class="card-body">
             <h5 class="card-title">FERRUM PC</h5>
@@ -165,7 +232,7 @@
       </div>
       <!-- PC 14 -->
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="pc-item card bg-black border-warning h-100 text-warning">
+        <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
           <img src="https://optim.tildacdn.com/tild6563-6234-4363-b461-656663613563/-/format/webp/Iron.png.webp" class="card-img-top" alt="IRON PC">
           <div class="card-body">
             <h5 class="card-title">IRON PC</h5>
@@ -176,7 +243,7 @@
     </div>
   </main>
 
-  <footer class="bg-black border-top border-warning text-center py-3">
+  <footer class="bg-black border-top border-warning text-center py-3 mt-auto">
     <div class="container">
       <small class="text-warning">&copy; 2025 Optimus Prime. All rights reserved.</small>
     </div>
