@@ -19,6 +19,20 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+.datetime-section {
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 1rem;
+  background: var(--black);
+  box-shadow: 0 0 15px rgb(253, 194, 33);
+  max-width: 420px;
+  margin: 2rem auto;
+}
+
+#datetime {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
 main {
   flex: 1 0 auto; /* Allow main to grow and take available space */
