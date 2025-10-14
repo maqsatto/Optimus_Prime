@@ -26,7 +26,7 @@ html, body {
   background: var(--black);
   box-shadow: 0 0 15px rgb(253, 194, 33);
   max-width: 400px;
-  margin: 2rem 0 2rem auto;
+  margin: 2rem auto;
 }
 
 #datetime {
