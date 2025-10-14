@@ -34,6 +34,7 @@
         </ul>
         <div class="d-flex align-items-center ms-3">
           <button id="bg-toggle-btn" class="btn btn-sm btn-outline-warning">Change Background</button>
+          <button id="open-modal-btn" class="btn btn-sm btn-outline-warning ms-2">Contact Us</button>
         </div>
       </div>
     </div>
@@ -47,7 +48,6 @@
         Customize your PC build with the latest components, or browse pre-built systems.
       </p>
       <a href="builtpc.html" class="btn-custom btn-warning btn-lg">Start Building</a>
-      <button id="open-modal-btn" class="btn-custom btn-warning btn-lg ms-2">Contact Us</button>
     </section>
 
     <!-- Features / Cards -->
@@ -173,52 +173,29 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   
-  <!-- Popup modal markup -->
+ <!-- add modal markup just before the script includes -->
+  <!-- Contact Modal (hidden by default) -->
   <div id="modal-overlay" class="modal-overlay" hidden>
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
-      <button class="modal-close" id="close-modal-btn" aria-label="Close">&times;</button>
-      <div class="modal-header mb-2">
-        <h3 id="modal-title" class="text-warning">Contact / Subscribe</h3>
-        <p id="modal-desc" class="text-warning small mb-0">Send us a message or subscribe to occasional updates. We'll never share your data.</p>
-      </div>
-
-      <form id="contact-form" novalidate>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <h5 id="modal-title" class="text-warning mb-2">Contact Us</h5>
+      <form id="contact-form" class="contact-form">
         <div class="mb-2">
-          <label for="name" class="form-label text-warning">Name</label>
-          <input id="name" name="name" type="text" class="form-control" placeholder="Your name" required>
+          <label for="contact-name" class="form-label text-warning">Name</label>
+          <input id="contact-name" class="form-control" required>
         </div>
-
         <div class="mb-2">
-          <label for="email" class="form-label text-warning">Email</label>
-          <input id="email" name="email" type="email" class="form-control" placeholder="you@example.com" required>
+          <label for="contact-email" class="form-label text-warning">Email</label>
+          <input id="contact-email" type="email" class="form-control" required>
         </div>
-
         <div class="mb-2">
-          <label for="subject" class="form-label text-warning">Subject</label>
-          <input id="subject" name="subject" type="text" class="form-control" placeholder="Reason for contact (e.g. Support, Partnership)">
+          <label for="contact-message" class="form-label text-warning">Message</label>
+          <textarea id="contact-message" class="form-control" rows="4" required></textarea>
         </div>
-
-        <div class="mb-2">
-          <label for="phone" class="form-label text-warning">Phone (optional)</label>
-          <input id="phone" name="phone" type="tel" class="form-control" placeholder="+1 555 555 5555">
-        </div>
-
-        <div class="mb-3">
-          <label for="message" class="form-label text-warning">Message</label>
-          <textarea id="message" name="message" rows="4" class="form-control" placeholder="How can we help? (optional)"></textarea>
-        </div>
-
-        <div class="form-check mb-3 text-warning">
-          <input class="form-check-input" type="checkbox" value="yes" id="subscribe-news" name="subscribe">
-          <label class="form-check-label" for="subscribe-news">Subscribe me to product updates and news (optional)</label>
-        </div>
-
-        <p class="small text-muted">By sending this message you agree to our <a href="#" class="text-warning">privacy policy</a>.</p>
-
-        <div class="d-flex justify-content-end gap-2">
-          <button type="button" id="cancel-modal-btn" class="btn btn-outline-secondary">Cancel</button>
-          <button type="submit" class="btn btn-warning">Send</button>
-        </div>
+        <div class="text-end mt-3">
+          <button type="button" id="cancel-modal-btn" class="btn btn-sm btn-outline-light me-2">Cancel</button>
+          <button type="submit" class="btn btn-sm btn-warning">Send</button>
+         </div>
       </form>
     </div>
   </div>

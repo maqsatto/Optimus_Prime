@@ -207,50 +207,56 @@ footer{
   line-height: 1.5;
 }
 
-/* Modal / Popup styles */
-.modal-overlay {
+/* Modal / overlay */
+.modal-overlay{
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(0,0,0,0.7);
   z-index: 1200;
   padding: 1rem;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.3s, visibility 0.3s;
 }
 
-.modal-overlay[hidden] {
-  opacity: 0;
-  visibility: hidden;
-}
-.modal {
+/* The actual modal box — uses container background so other containers stay untouched */
+.modal-box{
+  width: 100%;
+  max-width: 560px;
   background: var(--container-bg);
   border: 2px solid var(--gold);
-  padding: 1.25rem;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 520px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-  position: relative;
   color: var(--text);
-  z-index: 1201;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  position: relative;
 }
-.modal .modal-close {
+
+/* Close button */
+.modal-close{
   position: absolute;
   right: 10px;
   top: 8px;
   background: transparent;
   border: none;
+  font-size: 1.6rem;
+  line-height: 1;
   color: var(--gold);
-  font-size: 1.4rem;
   cursor: pointer;
 }
 
-/* small helper for theme state (optional) */
-.theme-indicator {
-  font-size: .9rem;
-  opacity: .9;
+/* small adjustments for form inside modal */
+.contact-form .form-label{ color: var(--gold); }
+.contact-form .form-control{
+  background: #0b0b0b;
+  border: 1px solid rgba(255,215,0,0.12);
+  color: var(--text);
 }
+.contact-form .form-control:focus{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,215,0,0.06);
+  border-color: var(--gold);
+}
+
+/* respect hidden attribute (some browsers already hide) */
+[hidden]{ display: none !important; }

@@ -66,63 +66,62 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const openBtn = document.getElementById("open-modal-btn");
   const overlay = document.getElementById("modal-overlay");
-  const closeBtn = document.getElementById("close-modal-btn");
+  const closeBtn = document.getElementById("modal-close");
+  const cancelBtn = document.getElementById("cancel-modal-btn");
   const contactForm = document.getElementById("contact-form");
-  const bgBtn = document.getElementById("bg-toggle-btn");
 
   function showModal() {
-    if (overlay) {
-      overlay.hidden = false;
-      document.body.style.overflow = "hidden"; // prevent background scroll
-      // focus first field
-      const first = overlay.querySelector("input, textarea, button");
-      if (first) first.focus();
-    }
+    if (!overlay) return;
+    overlay.removeAttribute("hidden");
+    // lock scroll behind modal
+    document.body.style.overflow = "hidden";
+    // focus first input
+    const first = overlay.querySelector("input, textarea, button");
+    if (first) first.focus();
   }
 
   function hideModal() {
-    if (overlay) {
-      overlay.hidden = true;
-      document.body.style.overflow = "";
-    }
+    if (!overlay) return;
+    overlay.setAttribute("hidden", "");
+    document.body.style.overflow = "";
   }
 
   if (openBtn) openBtn.addEventListener("click", showModal);
   if (closeBtn) closeBtn.addEventListener("click", hideModal);
-  // Cancel button inside form (newly added)
-  const cancelBtn = document.getElementById("cancel-modal-btn");
   if (cancelBtn) cancelBtn.addEventListener("click", hideModal);
 
-  // Close when clicking outside modal content
+  // click outside modal content
   if (overlay) {
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) hideModal();
     });
   }
 
-  // Close on Escape
+  // Escape key
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") hideModal();
+    if (e.key === "Escape" && overlay && !overlay.hasAttribute("hidden")) hideModal();
   });
 
-  // Demo submit - prevent real submission and show a simple thank-you
+  // demo submit
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = contactForm.querySelector("#contact-name").value || "there";
-      // Replace form with a thank-you message
-      const modal = contactForm.closest(".modal");
-      if (modal) {
-        modal.innerHTML = `\n          <button class="modal-close" id="close-modal-btn" aria-label="Close">&times;</button>\n          <h3 class="text-warning">Thanks, ${name}!</h3>\n          <p class=\"text-warning\">We received your message and will get back to you soon.</p>\n          <div class=\"text-end\"><button id=\"close-thanks\" class=\"btn btn-warning\">Close</button></div>`;
-        const closeThanks = document.getElementById("close-thanks");
-        if (closeThanks) closeThanks.addEventListener("click", hideModal);
-        const closeX = document.getElementById("close-modal-btn");
-        if (closeX) closeX.addEventListener("click", hideModal);
-      }
+      const name = contactForm.querySelector("#contact-name")?.value || "there";
+      contactForm.innerHTML = `
+        <p class="text-warning">Thanks, ${name}! We'll get back to you shortly.</p>
+        <div class="text-end mt-3">
+          <button id="modal-close-2" class="btn btn-sm btn-outline-light">Close</button>
+        </div>
+      `;
+      const close2 = document.getElementById("modal-close-2");
+      if (close2) close2.addEventListener("click", hideModal);
     });
   }
+});
 
-  // Background toggle
+// === Theme Toggle ===
+document.addEventListener("DOMContentLoaded", () => {
+  const bgBtn = document.getElementById("bg-toggle-btn");
   const themes = [
     { name: "dark", bg: "#000000", text: "#FFD700" },
     { name: "midnight", bg: "#0b1220", text: "#FFD700" },
