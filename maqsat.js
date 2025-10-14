@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var form = document.querySelector("form");
     form.onsubmit = function(event) {
         if (!validateForm()) {
-            event.preventDefault(); // stop form submission
+            event.preventDefault();
         }
     };
 });
