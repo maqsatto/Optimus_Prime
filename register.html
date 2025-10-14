@@ -10,7 +10,7 @@
 </head>
 <body class="bg-black text-warning d-flex flex-column min-vh-100">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+  <script src="maqsat.js"></script>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
     <div class="container">
@@ -36,24 +36,25 @@
       <div class="col-12 col-md-6">
         <div class="card bg-black border-warning text-warning p-4">
           <h2 class="text-center mb-3">Create Your Account</h2>
-          <form action="profile.html" method="POST" class="row g-3">
+          <form action="profile.html" method="POST" class="row g-3" novalidate>
             <div class="col-12">
               <label class="form-label text-warning">Username</label>
-              <input type="text" class="form-control bg-dark text-warning border-warning" required>
+              <input id="register" type="text" class="form-control bg-dark text-warning border-warning">
             </div>
             <div class="col-12">
               <label class="form-label text-warning">Email</label>
-              <input type="email" class="form-control bg-dark text-warning border-warning" required>
+              <input id="email" type="text" class="form-control bg-dark text-warning border-warning">
             </div>
             <div class="col-12">
               <label class="form-label text-warning">Password</label>
-              <input type="password" class="form-control bg-dark text-warning border-warning" required>
+              <input id="pass" type="password" class="form-control bg-dark text-warning border-warning">
             </div>
             <div class="col-12">
-              <button class="btn btn-warning w-100">Register</button>
+              <label class="form-label text-warning">Confirm Password</label>
+              <input id="confirm_pass" type="password" class="form-control bg-dark text-warning border-warning">
             </div>
-            <div class="col-12 text-center">
-              <p class="mb-0">Already have an account? <a href="login.html" class="text-warning">Login here</a></p>
+            <div class="col-12">
+              <button id="registerBtn" type="submit" class="btn btn-warning w-100">Register</button>
             </div>
           </form>
         </div>
