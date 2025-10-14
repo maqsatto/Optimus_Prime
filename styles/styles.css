@@ -1,6 +1,7 @@
 :root{
   --gold: #FFD700;
   --bg: #000000;
+  --container-bg: #1a1a1a;
   --accent: #FF6347;
   --muted: #1a1a1a;
   --text: #FFD700;
@@ -84,7 +85,7 @@ footer{
   margin-top:2rem; 
 }
 .pc-item{
-  background:var(--muted);
+  background:var(--container-bg);
   padding:1.25rem;
   border-radius:10px;
   border:2px solid var(--gold);
@@ -103,13 +104,13 @@ footer{
   margin:0 auto;
   padding:1.5rem;
   border-radius:10px;
-  background:var(--muted);
+  background:var(--container-bg);
   border:2px solid var(--gold);
 }
 
 /* PC configurator lightweight styling */
 .pc-configurator{
-  background:var(--muted);
+  background:var(--container-bg);
   border-radius:12px;
   border:2px solid var(--gold);
   padding:1.5rem;
@@ -119,7 +120,7 @@ footer{
 
 /* Media page / card demo (responsive card stacking) */
 .card-demo .card{
-  background:var(--muted);
+  background:var(--container-bg);
   border:2px solid var(--gold);
   border-radius:10px;
   padding:1rem;
@@ -153,7 +154,7 @@ footer{
 }
 
 .faq-item {
-  background-color: var(--muted);
+  background-color: var(--container-bg);
   border: 2px solid var(--gold);
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -204,4 +205,52 @@ footer{
   padding: 1rem;
   font-size: 1rem;
   line-height: 1.5;
+}
+
+/* Modal / Popup styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: 1rem;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal-overlay[hidden] {
+  opacity: 0;
+  visibility: hidden;
+}
+.modal {
+  background: var(--container-bg);
+  border: 2px solid var(--gold);
+  padding: 1.25rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  position: relative;
+  color: var(--text);
+  z-index: 1201;
+}
+.modal .modal-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* small helper for theme state (optional) */
+.theme-indicator {
+  font-size: .9rem;
+  opacity: .9;
 }
