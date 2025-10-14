@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   const section = document.createElement("section");
   section.className = "datetime-section text-center my-4";
 
@@ -23,19 +22,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateDateTime() {
     const now = new Date();
-
     const options = {
       year: "numeric",
       month: "long",
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
+      second: "2-digit",
       hour12: false,
     };
-
     datetime.textContent = now.toLocaleString("en-US", options).replace(",", "");
   }
 
   updateDateTime();
   setInterval(updateDateTime, 1000);
+});
+
+// === FAQ Accordion Logic ===
+document.addEventListener("DOMContentLoaded", () => {
+  const faqQuestions = document.querySelectorAll(".faq-question");
+
+  faqQuestions.forEach((question) => {
+    question.addEventListener("click", () => {
+      faqQuestions.forEach((item) => {
+        if (item !== question) {
+          item.classList.remove("active");
+          item.nextElementSibling.style.maxHeight = null;
+        }
+      });
+      question.classList.toggle("active");
+      const answer = question.nextElementSibling;
+
+      if (answer.style.maxHeight) {
+        answer.style.maxHeight = null;
+      } else {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
 });

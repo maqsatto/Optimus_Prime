@@ -25,8 +25,8 @@ html, body {
   padding: 1rem;
   background: var(--black);
   box-shadow: 0 0 15px rgb(253, 194, 33);
-  max-width: 420px;
-  margin: 2rem auto;
+  max-width: 400px;
+  margin: 2rem 0 2rem auto;
 }
 
 #datetime {
@@ -34,13 +34,15 @@ html, body {
   letter-spacing: 0.5px;
 }
 
+
 main {
-  flex: 1 0 auto; /* Allow main to grow and take available space */
+  flex: 1 0 auto;
 }
 
 footer {
   flex-shrink: 0;
 }
+
 
 /* Links */
 a{ color:var(--text); text-decoration:none; transition:color .2s; }
@@ -77,12 +79,13 @@ footer{
   color:var(--text);
 }
 
-/* PC gallery cards (keeps styling when using Bootstrap grid)
-   NOTE: padding/margin removed so Bootstrap spacing utilities (p-*, m-*) can be used in HTML */
-.pc-gallery { margin-top:2rem; }
+/* PC gallery cards (keeps styling when using Bootstrap grid) */
+.pc-gallery { 
+  margin-top:2rem; 
+}
 .pc-item{
   background:var(--muted);
-  padding:0; /* use Bootstrap p-* classes on the element */
+  padding:1.25rem;
   border-radius:10px;
   border:2px solid var(--gold);
   color:var(--text);
@@ -94,32 +97,32 @@ footer{
 .pc-item p{ font-weight:600; color:var(--gold); margin:0; }
 .pc-item:hover{ transform:translateY(-8px); box-shadow:0 10px 30px rgba(0,0,0,0.45); }
 
-/* Auth form wrapper (rely on Bootstrap spacing classes) */
+/* Auth form wrapper (keeps max width but rely on Bootstrap form-control) */
 .auth-form{
   max-width:520px;
   margin:0 auto;
-  padding:0; /* use Bootstrap p-* classes in HTML */
+  padding:1.5rem;
   border-radius:10px;
   background:var(--muted);
   border:2px solid var(--gold);
 }
 
-/* PC configurator lightweight styling (use Bootstrap spacing utilities) */
+/* PC configurator lightweight styling */
 .pc-configurator{
   background:var(--muted);
   border-radius:12px;
   border:2px solid var(--gold);
-  padding:0; /* use Bootstrap p-* classes in HTML */
+  padding:1.5rem;
   max-width:760px;
   margin:2rem auto;
 }
 
-/* Media page / card demo - remove internal padding, use Bootstrap utilities instead */
+/* Media page / card demo (responsive card stacking) */
 .card-demo .card{
   background:var(--muted);
   border:2px solid var(--gold);
   border-radius:10px;
-  padding:0; /* use Bootstrap p-* classes on card in HTML */
+  padding:1rem;
   color:var(--text);
   transition:transform .22s, box-shadow .22s;
 }
@@ -141,5 +144,64 @@ footer{
   .media-page .media-typography h2{ font-size:1.05rem; }
   .card-demo .card img{ height:140px; }
 }
+/* === FAQ Accordion (Optimus Prime theme) === */
+.faq-container {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+  background: transparent;
+}
 
-/* Preserve Bootstrap defaults by not redefining .container, .row, .col, .navbar, .card, .form-control, etc. */
+.faq-item {
+  background-color: var(--muted);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.faq-item:hover {
+  box-shadow: 0 0 15px var(--gold);
+}
+.faq-question {
+  width: 100%;
+  background: var(--bg);
+  color: var(--gold);
+  padding: 1rem 1.25rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+  background-color: var(--muted);
+}
+
+.arrow {
+  position: absolute;
+  right: 20px;
+  transition: transform 0.3s;
+}
+
+.faq-question.active .arrow {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  background: #111;
+  color: var(--text);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faq-answer p {
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
