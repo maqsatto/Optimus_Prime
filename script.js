@@ -158,3 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// === Advanced JS Demo (objects, arrays, HOFs, sound, animations) ===
+// Advanced demo moved to jsdemo.js to keep site script focused.
