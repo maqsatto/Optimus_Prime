@@ -282,3 +282,11 @@ footer{
   border:1px solid rgba(255,215,0,0.06);
 }
 /* demo styles kept for jsdemo page */
+
+/* Advanced Interactions styles */
+.star{ cursor:pointer; font-size:1.35rem; color:rgba(255,215,0,0.25); margin-right:.25rem; }
+.star.selected{ color:var(--gold); text-shadow:0 1px 4px rgba(0,0,0,0.6); }
+#nav-menu .nav-item{ cursor:pointer; border-radius:6px; }
+#nav-menu .nav-item:focus{ outline:2px solid rgba(255,215,0,0.12); }
+.form-step{ padding:.5rem 0; }
+.form-step.d-none{ display:none; }
