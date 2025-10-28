@@ -290,3 +290,25 @@ footer{
 #nav-menu .nav-item:focus{ outline:2px solid rgba(255,215,0,0.12); }
 .form-step{ padding:.5rem 0; }
 .form-step.d-none{ display:none; }
+
+.toast-note {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #222;
+  color: #ffcc00;
+  padding: 10px 16px;
+  border-radius: 6px;
+  display: none;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+#copyBtn {
+  background: linear-gradient(90deg, var(--gold) 60%, var(--accent) 100%);
+  border: none;
+  border-radius: 30px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+}

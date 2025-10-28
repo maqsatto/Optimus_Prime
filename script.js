@@ -1,3 +1,4 @@
+// === Date & Time ===
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.createElement("section");
   section.className = "datetime-section text-center my-4";
@@ -14,11 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
   section.appendChild(datetime);
 
   const main = document.querySelector("main") || document.body;
-  if (main.firstChild) {
-    main.insertBefore(section, main.firstChild);
-  } else {
-    main.appendChild(section);
-  }
+  if (main.firstChild) main.insertBefore(section, main.firstChild);
+  else main.appendChild(section);
 
   function updateDateTime() {
     const now = new Date();
@@ -33,36 +31,29 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     datetime.textContent = now.toLocaleString("en-US", options).replace(",", "");
   }
-
   updateDateTime();
   setInterval(updateDateTime, 1000);
 });
 
-// === FAQ Accordion Logic ===
+// === FAQ Accordion ===
 document.addEventListener("DOMContentLoaded", () => {
   const faqQuestions = document.querySelectorAll(".faq-question");
-
-  faqQuestions.forEach((question) => {
-    question.addEventListener("click", () => {
+  faqQuestions.forEach((q) => {
+    q.addEventListener("click", () => {
       faqQuestions.forEach((item) => {
-        if (item !== question) {
+        if (item !== q) {
           item.classList.remove("active");
           item.nextElementSibling.style.maxHeight = null;
         }
       });
-      question.classList.toggle("active");
-      const answer = question.nextElementSibling;
-
-      if (answer.style.maxHeight) {
-        answer.style.maxHeight = null;
-      } else {
-        answer.style.maxHeight = answer.scrollHeight + "px";
-      }
+      q.classList.toggle("active");
+      const ans = q.nextElementSibling;
+      ans.style.maxHeight = ans.style.maxHeight ? null : ans.scrollHeight + "px";
     });
   });
 });
 
-// === Modal and Background Toggle === (Daniyal)
+// === Modal ===
 document.addEventListener("DOMContentLoaded", () => {
   const openBtn = document.getElementById("open-modal-btn");
   const overlay = document.getElementById("modal-overlay");
@@ -73,9 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function showModal() {
     if (!overlay) return;
     overlay.removeAttribute("hidden");
-    // lock scroll behind modal
     document.body.style.overflow = "hidden";
-    // focus first input
     const first = overlay.querySelector("input, textarea, button");
     if (first) first.focus();
   }
@@ -90,19 +79,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if (closeBtn) closeBtn.addEventListener("click", hideModal);
   if (cancelBtn) cancelBtn.addEventListener("click", hideModal);
 
-  // click outside modal content
   if (overlay) {
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) hideModal();
     });
   }
 
-  // Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && overlay && !overlay.hasAttribute("hidden")) hideModal();
   });
 
-  // demo submit
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -113,8 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <button id="modal-close-2" class="btn btn-sm btn-outline-light">Close</button>
         </div>
       `;
-      const close2 = document.getElementById("modal-close-2");
-      if (close2) close2.addEventListener("click", hideModal);
+      document.getElementById("modal-close-2").addEventListener("click", hideModal);
     });
   }
 });
@@ -125,39 +110,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const themes = [
     { name: "dark", bg: "#000000", text: "#FFD700" },
     { name: "midnight", bg: "#0b1220", text: "#FFD700" },
-    // removed: { name: "light", bg: "#f8f9fa", text: "#111" },
   ];
 
   function applyTheme(theme) {
-    document.documentElement.style.setProperty("--bg", theme.bg);
-    document.documentElement.style.setProperty("--text", theme.text);
     document.body.style.backgroundColor = theme.bg;
     document.body.style.color = theme.text;
   }
 
-  function getStoredThemeIndex() {
-    const v = localStorage.getItem("optimus_theme_index");
-    return v ? Number(v) : 0;
-  }
-
-  function storeThemeIndex(i) {
-    localStorage.setItem("optimus_theme_index", String(i));
-  }
-
-  // initial apply
-  let currentThemeIndex = getStoredThemeIndex();
-  // clamp stored index to available themes length
-  if (currentThemeIndex >= themes.length) currentThemeIndex = 0;
-  applyTheme(themes[currentThemeIndex]);
+  let current = Number(localStorage.getItem("theme_index") || 0);
+  applyTheme(themes[current]);
 
   if (bgBtn) {
     bgBtn.addEventListener("click", () => {
-      currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-      applyTheme(themes[currentThemeIndex]);
-      storeThemeIndex(currentThemeIndex);
+      current = (current + 1) % themes.length;
+      applyTheme(themes[current]);
+      localStorage.setItem("theme_index", current);
     });
   }
 });
 
-// === Advanced JS Demo (objects, arrays, HOFs, sound, animations) ===
-// Advanced demo moved to jsdemo.js to keep site script focused.
+// === jQuery Enhancements ===
+$(document).ready(function () {
+  // Notification system
+  $("#theme-toggle").on("click", function () {
+    $("body").toggleClass("dark-mode");
+
+    const isDark = $("body").hasClass("dark-mode");
+    const msg = isDark ? "Theme changed to light" : "Theme changed to dark";
+
+    $(".theme-icon").text(isDark ? "☀️" : "🌙");
+
+    $("<div>")
+      .addClass("toast-note")
+      .text(msg)
+      .appendTo("body")
+      .fadeIn(300)
+      .delay(2000)
+      .fadeOut(400, function () {
+        $(this).remove();
+      });
+  });
+
+  // Copy to Clipboard
+  $("#copyBtn").on("click", function () {
+    const text = $("#textSnippet").text().trim();
+    navigator.clipboard.writeText(text);
+    $(this).html("✔ Copied");
+    setTimeout(() => $("#copyBtn").html("Copy"), 1500);
+  });
+
+ $(document).ready(function() {
+});
+});
