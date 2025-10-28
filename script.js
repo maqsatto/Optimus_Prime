@@ -332,13 +332,24 @@ $(document).ready(function() {
   lazyLoadImages();
   $(window).on('scroll', lazyLoadImages);
 
-  // Theme Toggle with notification /7
+   // Notification system /7
   $("#theme-toggle").on("click", function () {
-    $("body").toggleClass("day-mode");
-    const isDark = $("body").hasClass("day-mode");
-    const msg = isDark ? "Theme changed to Day Mode" : "Theme changed to Night Mode";
-    $(".theme-icon").text(isDark ? "🌙" : "☀️");
-    showNotification(msg, 'info');
+    $("body").toggleClass("dark-mode");
+
+    const isDark = $("body").hasClass("dark-mode");
+    const msg = isDark ? "Theme changed to light" : "Theme changed to dark";
+
+    $(".theme-icon").text(isDark ? "☀️" : "🌙");
+
+    $("<div>")
+      .addClass("toast-note")
+      .text(msg)
+      .appendTo("body")
+      .fadeIn(300)
+      .delay(2000)
+      .fadeOut(400, function () {
+        $(this).remove();
+      });
   });
 
   // Copy to Clipboard /8
