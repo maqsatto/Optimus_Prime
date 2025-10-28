@@ -312,3 +312,251 @@ footer{
   font-weight: 600;
   transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
 }
+
+/* jQuery Features Styles */
+
+/* TASK 1 & 2: Search Bar and Autocomplete */
+.search-container {
+  position: relative;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+#pc-search, #faq-search {
+  width: 100%;
+  padding: 12px 20px;
+  background: var(--container-bg);
+  border: 2px solid var(--gold);
+  border-radius: 25px;
+  color: var(--text);
+  font-size: 1rem;
+  transition: box-shadow 0.3s;
+}
+
+#pc-search:focus, #faq-search:focus {
+  outline: none;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--container-bg);
+  border: 2px solid var(--gold);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: -2px;
+}
+
+.suggestion-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: var(--text);
+  transition: background 0.2s;
+}
+
+.suggestion-item:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* TASK 3: Search Highlighting */
+mark.highlight {
+  background: var(--gold);
+  color: #000;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* TASK 4: Scroll Progress Bar */
+#scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 215, 0, 0.1);
+  z-index: 9999;
+}
+
+#scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  transition: width 0.1s ease;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* TASK 5: Animated Number Counter */
+.stats-section {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 2rem;
+  background: var(--container-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* TASK 6: Loading Spinner on Submit */
+button[type="submit"] {
+  position: relative;
+  transition: all 0.3s;
+}
+
+button[type="submit"].loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+button[type="submit"].success {
+  background: linear-gradient(90deg, #28a745, #20c997);
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* TASK 7: Enhanced Notification System */
+.toast-notification {
+  position: fixed;
+  top: 20px;
+  right: -300px;
+  min-width: 250px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  transition: right 0.3s ease;
+}
+
+.toast-notification.show {
+  right: 20px;
+}
+
+.notification-success {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  border-left: 4px solid #155724;
+}
+
+.notification-error {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  border-left: 4px solid #721c24;
+}
+
+.notification-info {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  border-left: 4px solid #856404;
+  color: #000;
+}
+
+/* TASK 9: Image Lazy Loading */
+img[data-src] {
+  opacity: 0;
+  transition: opacity 0.5s;
+  background: var(--container-bg);
+}
+
+img.lazy-loaded {
+  opacity: 1;
+}
+
+/* Loading placeholder */
+img[data-src]:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  background: linear-gradient(90deg, 
+    var(--container-bg) 25%, 
+    rgba(255, 215, 0, 0.1) 50%, 
+    var(--container-bg) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .search-container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .toast-notification {
+    left: 10px;
+    right: 10px;
+    min-width: auto;
+  }
+  
+  .toast-notification.show {
+    right: 10px;
+  }
+}
+
+/* Day Mode Adjustments */
+.day-mode #pc-search,
+.day-mode #faq-search {
+  background: #ffffff;
+  color: #212529;
+}
+
+.day-mode .autocomplete-suggestions {
+  background: #ffffff;
+}
+
+.day-mode .suggestion-item {
+  color: #212529;
+}
+
+.day-mode .stat-item {
+  background: #ffffff;
+}
+
+.day-mode mark.highlight {
+  background: #FFD700;
+  color: #000;
+}

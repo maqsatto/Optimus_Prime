@@ -1,4 +1,3 @@
-// Enhanced site interactions
 const OptimusPrime = {
     // Audio feedback
     audio: {

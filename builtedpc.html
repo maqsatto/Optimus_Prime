@@ -4,15 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Branded Computers</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font + custom CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
+  
+  <!-- jQuery from CDN - Added in head section -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body class="bg-black text-warning d-flex flex-column min-vh-100">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="interactions.js"></script>
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -43,7 +48,14 @@
     <!-- Added: PC Catalogue label + bordered, smaller carousel with bold yellow side buttons -->
     <section class="mb-4">
       <h3 class="text-center text-warning mb-3">PC Catalogue</h3>
-
+      <section class="search-container my-4">
+        <input 
+          type="text" 
+          id="pc-search" 
+          placeholder="🔍 Search for PCs by name or price..."
+          aria-label="Search PCs"
+        >
+      </section>
       <div class="mx-auto border border-warning rounded p-2 bg-black" style="max-width:980px;">
         <div id="pcCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Pre-built PC carousel">
           <div class="carousel-indicators">
@@ -111,7 +123,7 @@
       <!-- PC 1 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild6339-3434-4633-b731-653539323639/-/format/webp/Carbonlianli.png.webp" class="card-img-top" alt="Carbon PC">
+          <img data-src="https://optim.tildacdn.com/tild6339-3434-4633-b731-653539323639/-/format/webp/Carbonlianli.png.webp" class="card-img-top" alt="Carbon PC">
           <div class="card-body">
             <h5 class="card-title">CARBON PC</h5>
             <p class="card-text fw-bold">360,000₸</p>
@@ -125,7 +137,7 @@
       <!-- PC 2 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild3531-6638-4633-b930-613261323630/-/format/webp/Titan.png.webp" class="card-img-top" alt="Titan PC">
+          <img data-src="https://optim.tildacdn.com/tild3531-6638-4633-b930-613261323630/-/format/webp/Titan.png.webp" class="card-img-top" alt="Titan PC">
           <div class="card-body">
             <h5 class="card-title">TITAN PC</h5>
             <p class="card-text fw-bold">320,000₸</p>
@@ -139,7 +151,7 @@
       <!-- PC 3 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild6135-3734-4630-b831-393466383533/-/format/webp/Krypton_.png.webp" class="card-img-top" alt="KRYPTON PC">
+          <img data-src="https://optim.tildacdn.com/tild6135-3734-4630-b831-393466383533/-/format/webp/Krypton_.png.webp" class="card-img-top" alt="KRYPTON PC">
           <div class="card-body">
             <h5 class="card-title">KRYPTON PC</h5>
             <p class="card-text fw-bold">260,000₸</p>
@@ -153,7 +165,7 @@
       <!-- PC 4 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild6230-6163-4162-a330-653163633965/-/format/webp/Radon_nv5s.png.webp" class="card-img-top" alt="RADON PC">
+          <img data-src="https://optim.tildacdn.com/tild6230-6163-4162-a330-653163633965/-/format/webp/Radon_nv5s.png.webp" class="card-img-top" alt="RADON PC">
           <div class="card-body">
             <h5 class="card-title">RADON PC</h5>
             <p class="card-text fw-bold">210,000₸</p>
@@ -167,100 +179,140 @@
       <!-- PC 5 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild3439-6233-4037-b932-616361323265/-/format/webp/Lithium_50.png.webp" class="card-img-top" alt="LITHIUM PC">
+          <img data-src="https://optim.tildacdn.com/tild3439-6233-4037-b932-616361323265/-/format/webp/Lithium_50.png.webp" class="card-img-top" alt="LITHIUM PC">
           <div class="card-body">
             <h5 class="card-title">LITHIUM PC</h5>
             <p class="card-text fw-bold">175,000₸</p>
+            <div class="mt-2">
+              <label class="d-block mb-1 small">Rate this PC:</label>
+              <div id="rating-lithium" class="d-inline-block"></div>
+            </div>
           </div>
         </div>
       </div>
       <!-- PC 6 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild3237-6262-4862-b233-356633313330/-/format/webp/Cobalt_Black.png.webp" class="card-img-top" alt="COBALT PC">
+          <img data-src="https://optim.tildacdn.com/tild3237-6262-4862-b233-356633313330/-/format/webp/Cobalt_Black.png.webp" class="card-img-top" alt="COBALT PC">
           <div class="card-body">
             <h5 class="card-title">COBALT PC</h5>
             <p class="card-text fw-bold">170,000₸</p>
+            <div class="mt-2">
+              <label class="d-block mb-1 small">Rate this PC:</label>
+              <div id="rating-cobalt" class="d-inline-block"></div>
+            </div>
           </div>
         </div>
       </div>
       <!-- PC 7 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild3333-6239-4635-b435-643936353234/-/format/webp/__2025-09.png.webp" class="card-img-top" alt="GOLD PC">
+          <img data-src="https://optim.tildacdn.com/tild3333-6239-4635-b435-643936353234/-/format/webp/__2025-09.png.webp" class="card-img-top" alt="GOLD PC">
           <div class="card-body">
             <h5 class="card-title">GOLD PC</h5>
             <p class="card-text fw-bold">145,000₸</p>
+            <div class="mt-2">
+              <label class="d-block mb-1 small">Rate this PC:</label>
+              <div id="rating-gold" class="d-inline-block"></div>
+            </div>
           </div>
         </div>
       </div>
       <!-- PC 8 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild3066-6336-4830-b237-323463636465/-/format/webp/Helium_Plus_.png.webp" class="card-img-top" alt="HELIUM PLUS PC">
+          <img data-src="https://optim.tildacdn.com/tild3066-6336-4830-b237-323463636465/-/format/webp/Helium_Plus_.png.webp" class="card-img-top" alt="HELIUM PLUS PC">
           <div class="card-body">
             <h5 class="card-title">HELIUM PLUS PC</h5>
             <p class="card-text fw-bold">135,000₸</p>
+            <div class="mt-2">
+              <label class="d-block mb-1 small">Rate this PC:</label>
+              <div id="rating-helium" class="d-inline-block"></div>
+            </div>
           </div>
         </div>
       </div>
       <!-- PC 9 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild3633-6234-4838-b835-613933363665/-/format/webp/Silver_Black.png.webp" class="card-img-top" alt="SILVER PC">
+          <img data-src="https://optim.tildacdn.com/tild3633-6234-4838-b835-613933363665/-/format/webp/Silver_Black.png.webp" class="card-img-top" alt="SILVER PC">
           <div class="card-body">
             <h5 class="card-title">SILVER PC</h5>
             <p class="card-text fw-bold">115,000₸</p>
+            <div class="mt-2">
+              <label class="d-block mb-1 small">Rate this PC:</label>
+              <div id="rating-silver" class="d-inline-block"></div>
+            </div>
           </div>
         </div>
       </div>
       <!-- PC 10 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild3038-3066-4465-b366-353438366339/-/format/webp/Helium_1.png.webp" class="card-img-top" alt="HELIUM PC">
+          <img data-src="https://optim.tildacdn.com/tild3038-3066-4465-b366-353438366339/-/format/webp/Helium_1.png.webp" class="card-img-top" alt="HELIUM PC">
           <div class="card-body">
             <h5 class="card-title">HELIUM PC</h5>
             <p class="card-text fw-bold">112,000₸</p>
+            <div class="mt-2">
+              <label class="d-block mb-1 small">Rate this PC:</label>
+              <div id="rating-thelium" class="d-inline-block"></div>
+            </div>
           </div>
         </div>
       </div>
       <!-- PC 11 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild6663-3030-4162-b330-383261656466/-/format/webp/Bronze.png.webp" class="card-img-top" alt="BRONZE PC">
+          <img data-src="https://optim.tildacdn.com/tild6663-3030-4162-b330-383261656466/-/format/webp/Bronze.png.webp" class="card-img-top" alt="BRONZE PC">
           <div class="card-body">
             <h5 class="card-title">BRONZE PC</h5>
             <p class="card-text fw-bold">105,000₸</p>
+            <div class="mt-2">
+              <label class="d-block mb-1 small">Rate this PC:</label>
+              <div id="rating-bronze" class="d-inline-block"></div>
+            </div>
           </div>
         </div>
       </div>
       <!-- PC 12 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild6463-3135-4039-b432-623736666536/-/format/webp/Cuprum_.png.webp" class="card-img-top" alt="CUPRUM PC">
+          <img data-src="https://optim.tildacdn.com/tild6463-3135-4039-b432-623736666536/-/format/webp/Cuprum_.png.webp" class="card-img-top" alt="CUPRUM PC">
           <div class="card-body">
             <h5 class="card-title">CUPRUM PC</h5>
             <p class="card-text fw-bold">85,000₸</p>
+            <div class="mt-2">
+              <label class="d-block mb-1 small">Rate this PC:</label>
+              <div id="rating-cuprum" class="d-inline-block"></div>
+            </div>
           </div>
         </div>
       </div>
       <!-- PC 13 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild3266-3132-4065-b566-626236383330/-/format/webp/Ferrum_Black.png.webp" class="card-img-top" alt="FERRUM PC">
+          <img data-src="https://optim.tildacdn.com/tild3266-3132-4065-b566-626236383330/-/format/webp/Ferrum_Black.png.webp" class="card-img-top" alt="FERRUM PC">
           <div class="card-body">
             <h5 class="card-title">FERRUM PC</h5>
             <p class="card-text fw-bold">75,000₸</p>
+            <div class="mt-2">
+              <label class="d-block mb-1 small">Rate this PC:</label>
+              <div id="rating-ferrum" class="d-inline-block"></div>
+            </div>
           </div>
         </div>
       </div>
       <!-- PC 14 -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="pc-item card bg-black border-warning h-100 text-warning p-3">
-          <img src="https://optim.tildacdn.com/tild6563-6234-4363-b461-656663613563/-/format/webp/Iron.png.webp" class="card-img-top" alt="IRON PC">
+          <img data-src="https://optim.tildacdn.com/tild6563-6234-4363-b461-656663613563/-/format/webp/Iron.png.webp" class="card-img-top" alt="IRON PC">
           <div class="card-body">
             <h5 class="card-title">IRON PC</h5>
             <p class="card-text fw-bold">70,000₸</p>
+            <div class="mt-2">
+              <label class="d-block mb-1 small">Rate this PC:</label>
+              <div id="rating-iron" class="d-inline-block"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -276,5 +328,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Embedded JS demo script -->
   <script src="jsdemo.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
