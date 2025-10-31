@@ -70,22 +70,35 @@ const OptimusPrime = {
         }
     },
 
-    // Theme toggle
+    // Theme toggle with local storage
     theme: {
         init() {
             const toggle = document.getElementById('theme-toggle');
             if (!toggle) return;
 
-            // Set initial icon based on time of day
-            const hour = new Date().getHours();
-            const isDayTime = hour >= 6 && hour < 18;
-            this.updateThemeIcon(isDayTime);
+            // Check local storage for saved preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.classList.toggle('day-mode', savedTheme === 'day');
+                this.updateThemeIcon(savedTheme === 'day');
+            } else {
+                // Set initial theme based on time of day if no preference saved
+                const hour = new Date().getHours();
+                const isDayTime = hour >= 6 && hour < 18;
+                document.body.classList.toggle('day-mode', isDayTime);
+                this.updateThemeIcon(isDayTime);
+                localStorage.setItem('theme', isDayTime ? 'day' : 'night');
+            }
 
             toggle.addEventListener('click', () => {
                 const isDayMode = document.body.classList.toggle('day-mode');
                 this.updateThemeIcon(isDayMode);
+                localStorage.setItem('theme', isDayMode ? 'day' : 'night');
                 OptimusPrime.audio.playNotification();
             });
+
+            // Update contrast ratios for accessibility
+            this.updateContrast();
         },
         updateThemeIcon(isDayMode) {
             const icon = document.querySelector('.theme-icon');
@@ -93,6 +106,57 @@ const OptimusPrime = {
                 icon.textContent = isDayMode ? '🌙' : '☀️';
                 icon.title = isDayMode ? 'Switch to Night Mode' : 'Switch to Day Mode';
             }
+        },
+        updateContrast() {
+            // WCAG AA contrast improvements
+            const style = document.createElement('style');
+            style.textContent = `
+                .day-mode {
+                    --text-color: #212529;
+                    --bg-color: #ffffff;
+                    --bg-secondary: #f8f9fa;
+                    --border-color: #212529;
+                }
+                body:not(.day-mode) {
+                    --text-color: #ffc107;
+                    --bg-color: #000000;
+                    --bg-secondary: #212529;
+                    --border-color: #ffc107;
+                }
+                /* High contrast text */
+                body {
+                    color: var(--text-color) !important;
+                    background-color: var(--bg-color) !important;
+                }
+                .text-warning {
+                    color: var(--text-color) !important;
+                }
+                .border-warning {
+                    border-color: var(--border-color) !important;
+                }
+                .bg-black {
+                    background-color: var(--bg-color) !important;
+                }
+                .bg-dark {
+                    background-color: var(--bg-secondary) !important;
+                }
+                /* Ensure form controls maintain contrast */
+                .form-control, .form-select {
+                    color: var(--text-color) !important;
+                    background-color: var(--bg-color) !important;
+                    border-color: var(--border-color) !important;
+                }
+                /* Improve button contrast */
+                .btn-outline-warning {
+                    color: var(--text-color) !important;
+                    border-color: var(--border-color) !important;
+                }
+                .btn-outline-warning:hover {
+                    color: var(--bg-color) !important;
+                    background-color: var(--text-color) !important;
+                }
+            `;
+            document.head.appendChild(style);
         }
     },
 
@@ -227,6 +291,82 @@ const OptimusPrime = {
         }
     },
 
+    // Form validation
+    forms: {
+        init() {
+            document.querySelectorAll('form').forEach(form => {
+                form.setAttribute('novalidate', '');
+                form.addEventListener('submit', this.handleSubmit.bind(this));
+                
+                // Real-time validation
+                const fields = form.querySelectorAll('input, select, textarea');
+                fields.forEach(field => {
+                    field.addEventListener('blur', () => this.validateField(field));
+                    field.addEventListener('input', () => this.validateField(field));
+                });
+            });
+        },
+        validateField(field) {
+            // Reset custom validity
+            field.setCustomValidity('');
+            
+            const isValid = field.checkValidity();
+            field.classList.toggle('is-invalid', !isValid);
+            field.classList.toggle('is-valid', isValid);
+
+            // Custom validation messages
+            if (!isValid) {
+                let message = '';
+                if (field.validity.valueMissing) {
+                    message = 'This field is required';
+                } else if (field.validity.typeMismatch) {
+                    message = `Please enter a valid ${field.type}`;
+                } else if (field.validity.patternMismatch) {
+                    message = 'Please match the requested format';
+                }
+                field.setCustomValidity(message);
+            }
+
+            return isValid;
+        },
+        handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            
+            // Validate all fields
+            const fields = form.querySelectorAll('input, select, textarea');
+            let isValid = true;
+            fields.forEach(field => {
+                if (!this.validateField(field)) {
+                    isValid = false;
+                }
+            });
+
+            if (isValid) {
+                // Form is valid, proceed with submission
+                OptimusPrime.audio.playNotification();
+                const formData = new FormData(form);
+                console.log('Form submitted:', Object.fromEntries(formData));
+                
+                // Show success message
+                const alert = document.createElement('div');
+                alert.className = 'alert alert-success mt-3';
+                alert.textContent = 'Form submitted successfully!';
+                form.appendChild(alert);
+                setTimeout(() => alert.remove(), 3000);
+                
+                // Optional: Reset form
+                form.reset();
+                fields.forEach(field => {
+                    field.classList.remove('is-valid');
+                });
+            } else {
+                // Focus first invalid field
+                form.querySelector('.is-invalid')?.focus();
+            }
+        }
+    },
+
     // Initialize all features for a page
     init() {
         // Rating systems
@@ -235,18 +375,21 @@ const OptimusPrime = {
             this.rating.init(container.id);
         });
 
-        // Theme toggle
+        // Theme toggle with local storage
         this.theme.init();
 
         // Config form
         this.config.init('multi-form-config');
+
+        // Form validation
+        this.forms.init();
 
         // Add greeting to navbar
         const navbarNav = document.querySelector('.navbar-nav');
         if (navbarNav) {
             const greeting = document.createElement('li');
             greeting.className = 'nav-item ms-3';
-            greeting.innerHTML = `<span class="nav-link text-warning">${this.time.getGreeting()}</span>`;
+            greeting.innerHTML = `<span class="nav-link">${this.time.getGreeting()}</span>`;
             navbarNav.appendChild(greeting);
         }
 
@@ -255,6 +398,33 @@ const OptimusPrime = {
         if (timeGreetBtn) {
             timeGreetBtn.addEventListener('click', () => this.time.getGreeting());
         }
+
+        // Handle responsive navigation
+        this.handleResponsiveNav();
+    },
+
+    // Responsive navigation handler
+    handleResponsiveNav() {
+        const navbar = document.querySelector('.navbar-collapse');
+        if (!navbar) return;
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && 
+                !e.target.matches('.navbar-toggler') && 
+                navbar.classList.contains('show')) {
+                navbar.classList.remove('show');
+            }
+        });
+
+        // Close mobile menu when link is clicked
+        navbar.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) { // Bootstrap's lg breakpoint
+                    navbar.classList.remove('show');
+                }
+            });
+        });
     }
 };
 
