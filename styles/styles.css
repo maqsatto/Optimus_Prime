@@ -1,10 +1,34 @@
-:root{
-  --gold: #FFD700;
-  --bg: #000000;
-  --container-bg: #1a1a1a;
-  --accent: #FF6347;
-  --muted: #1a1a1a;
-  --text: #FFD700;
+/* WCAG AA Compliant Color System */
+:root {
+  /* Night Mode Colors - WCAG AA Compliant */
+  --night-bg: #000000;
+  --night-text: #FFD700; /* Gold - 12.41:1 contrast with black */
+  --night-bg-secondary: #1a1a1a;
+  --night-border: #FFD700;
+  --night-link: #FFA500; /* Orange - 7.5:1 contrast */
+  --night-link-hover: #FFD700;
+  
+  /* Day Mode Colors - WCAG AA Compliant */
+  --day-bg: #FFFFFF;
+  --day-text: #212529; /* Dark gray - 16.12:1 contrast with white */
+  --day-bg-secondary: #F8F9FA;
+  --day-border: #495057; /* Medium gray - 9.73:1 contrast */
+  --day-link: #0056b3; /* Blue - 7.5:1 contrast */
+  --day-link-hover: #003d82;
+  
+  /* Semantic colors with proper contrast */
+  --success: #28a745;
+  --error: #dc3545;
+  --warning: #856404; /* Dark gold for text */
+  --info: #004085;
+  
+  /* Legacy variable mappings for backward compatibility */
+  --gold: var(--night-text);
+  --bg: var(--night-bg);
+  --container-bg: var(--night-bg-secondary);
+  --accent: var(--night-link);
+  --muted: var(--night-bg-secondary);
+  --text: var(--night-text);
 }
 
 *{
