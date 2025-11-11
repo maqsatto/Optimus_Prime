@@ -84,33 +84,12 @@ A modern, accessible web application for building, configuring, and browsing pre
 
 ### Prerequisites
 - Modern web browser (Chrome, Firefox, Safari, Edge)
-- No server required - runs entirely client-side (for basic features)
 - Internet connection for live currency conversion API
 
-### Installation
+### Opening
 
-1. **Clone the repository:**
-```bash
-git clone https://github.com/maqsatto/Optimus_Prime.git
-cd Optimus_Prime
-```
-
-2. **Open in browser:**
-   - Simply open `index.html` in your web browser
-   - Or use a local server (recommended):
-   ```bash
-   # Python 3
-   python -m http.server 8000
-   
-   # Python 2
-   python -m SimpleHTTPServer 8000
-   
-   # Node.js (with http-server)
-   npx http-server
-   ```
-
-3. **Access the application:**
-   - Open `http://localhost:8000` in your browser
+1. **Access the application:**
+   - Open `https://maqsatto.github.io/Optimus_Prime` in your browser
 
 ## 📁 Project Structure
 
@@ -254,7 +233,6 @@ localStorage.setItem('preferred_currency', 'KZT' | 'RUB' | 'USD')
 
 ### Currency Conversion API
 - **Provider**: exchangerate-api.com
-- **Endpoint**: `https://api.exchangerate-api.com/v4/latest/KZT`
 - **Fallback Rates**: If API unavailable, uses hardcoded rates
 - **Auto-fetch**: Rates are fetched on page load
 - **Caching**: Rates are fetched fresh each session
@@ -286,23 +264,14 @@ USD: 0.0021 // 1 KZT ≈ 0.0021 USD
 - **Image lazy loading**: Some older browsers may not support all features. Works on all modern browsers.
 - **LocalStorage limits**: Each browser has ~5-10MB localStorage limit. Should not be an issue for this app.
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 👤 Author
 
-**Maqsat Atto**
+**Maqsat**
 - GitHub: [@maqsatto](https://github.com/maqsatto)
-- Email: Contact via repository
+**Daniyal**
+- GitHub: [@hqvnd](https://github.com/hqvnd)
+**Bekzat**
+- GitHub: [@bekgm](https://github.com/bekgm)
 
 ## 🙏 Acknowledgments
 
@@ -311,29 +280,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - exchangerate-api.com for currency data
 - WCAG guidelines for accessibility standards
 - All contributors and testers
-
-## 📞 Support
-
-For issues, questions, or suggestions:
-1. Check the [Issues](https://github.com/maqsatto/Optimus_Prime/issues) page
-2. Create a new issue with detailed description
-3. Include browser and OS information
-4. Attach screenshots if applicable
-
-## 📊 Statistics
-
-- **Pages**: 7 main pages
-- **Components**: 14+ pre-built PC models
-- **Supported Currencies**: 3 (KZT, RUB, USD)
-- **Rating Options**: 5-star scale
-- **Accessibility Level**: WCAG AA
-- **Browser Support**: All modern browsers (Chrome, Firefox, Safari, Edge)
-- **Bundle Size**: ~50KB (HTML + CSS + JS)
-
----
-
-**Last Updated**: November 11, 2025
-**Version**: 1.0.0
-**Status**: ✅ Active & Maintained
 
 🚀 **Ready to build your perfect PC!**
