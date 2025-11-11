@@ -416,6 +416,12 @@ mark.highlight {
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
+/* Day-mode override: use darker/black versions for yellow elements on white */
+.day-mode #scroll-progress-bar {
+  background: linear-gradient(90deg, #000000, #333333);
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
 /* TASK 5: Animated Number Counter */
 .stats-section {
   padding: 3rem 0;
@@ -436,6 +442,16 @@ mark.highlight {
   color: var(--gold);
   display: block;
   margin-bottom: 0.5rem;
+}
+
+/* Day-mode: swap gold with darker/black for readability on white */
+.day-mode .stat-item {
+  border-color: #000000;
+  background: var(--day-bg-secondary);
+}
+
+.day-mode .stat-number {
+  color: #000000;
 }
 
 .stat-label {
@@ -507,6 +523,13 @@ button[type="submit"].success {
   background: linear-gradient(135deg, #FFD700, #FFA500);
   border-left: 4px solid #856404;
   color: #000;
+}
+
+/* Day-mode notification: use dark info background to avoid bright yellow on white */
+.day-mode .notification-info {
+  background: linear-gradient(135deg, #000000, #444444);
+  border-left: 4px solid #222222;
+  color: #ffffff;
 }
 
 /* TASK 9: Image Lazy Loading */
@@ -581,8 +604,78 @@ img[data-src]:before {
 }
 
 .day-mode mark.highlight {
-  background: #FFD700;
-  color: #000;
+  /* Replace bright yellow with black for readability on white background */
+  background: #000000;
+  color: #ffffff;
+  padding: 0.1rem 0.25rem;
+  border-radius: 2px;
+}
+
+/* Comprehensive day-mode color overrides: replace all gold/yellow with dark variants */
+.day-mode .text-gold {
+  color: #000000 !important;
+}
+
+.day-mode .border-gold {
+  border-color: #2c2c2c !important;
+}
+
+.day-mode .btn-custom {
+  background: linear-gradient(90deg, #2c2c2c 60%, #555555 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.day-mode .btn-custom:hover {
+  background: linear-gradient(90deg, #555555 60%, #2c2c2c 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.day-mode .pc-item {
+  background: #ffffff;
+  border-color: #2c2c2c;
+  color: var(--day-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.day-mode .pc-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.day-mode .rating-stars .star {
+  color: #FFB700; /* Darker gold for stars in day mode, still visible but softer */
+}
+
+.day-mode .rating-stars .star.active {
+  color: #FF9500; /* Slightly darker active state */
+}
+
+.day-mode .card {
+  background-color: #ffffff;
+  border-color: #2c2c2c;
+  color: var(--day-text);
+}
+
+.day-mode .card-header {
+  background-color: #f0f0f0;
+  border-color: #2c2c2c;
+}
+
+.day-mode [type="button"],
+.day-mode [type="submit"],
+.day-mode [type="reset"] {
+  color: #ffffff;
+}
+
+.day-mode .btn-primary {
+  background-color: #2c2c2c;
+  border-color: #2c2c2c;
+}
+
+.day-mode .btn-primary:hover {
+  background-color: #555555;
+  border-color: #555555;
 }
 
 /* Form validation styles */

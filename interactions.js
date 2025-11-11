@@ -24,6 +24,9 @@ const OptimusPrime = {
             const container = document.getElementById(containerId);
             if (!container) return;
 
+            // Load saved rating from localStorage
+            this.loadRating(container);
+
             container.addEventListener('click', (e) => {
                 if (e.target.matches('.star')) {
                     const value = e.target.dataset.value;
@@ -46,7 +49,16 @@ const OptimusPrime = {
         setRating(container, value) {
             container.dataset.rating = value;
             this.highlightStars(container, value);
+            // Save rating to localStorage with container ID as key
+            localStorage.setItem(`rating_${container.id}`, value);
             OptimusPrime.audio.playNotification();
+        },
+        loadRating(container) {
+            const savedRating = localStorage.getItem(`rating_${container.id}`);
+            if (savedRating) {
+                container.dataset.rating = savedRating;
+                this.highlightStars(container, savedRating);
+            }
         },
         highlightStars(container, value) {
             container.querySelectorAll('.star').forEach(star => {
