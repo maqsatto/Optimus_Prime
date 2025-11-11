@@ -461,6 +461,11 @@ mark.highlight {
   letter-spacing: 1px;
 }
 
+.day-mode .stat-label {
+  color: #000000;
+  background: var(--day-bg-secondary);
+}
+
 /* TASK 6: Loading Spinner on Submit */
 button[type="submit"] {
   position: relative;
@@ -652,6 +657,12 @@ img[data-src]:before {
 }
 
 .day-mode .card {
+  background-color: #ffffff;
+  border-color: #2c2c2c;
+  color: var(--day-text);
+}
+
+.day-mode .card-text {
   background-color: #ffffff;
   border-color: #2c2c2c;
   color: var(--day-text);
