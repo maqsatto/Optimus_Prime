@@ -1,10 +1,11 @@
 /**
  * Currency Conversion API Module
  * Handles price conversions between KZT, RUB, and USD
+ * Toggle button cycles through currencies
  */
 
 const CurrencyConverter = {
-    // In production, fetch these from a real API
+    // Exchange rates (from KZT base)
     rates: {
         KZT: 1,
         RUB: 0.16,  // 1 KZT ≈ 0.16 RUB
@@ -18,13 +19,15 @@ const CurrencyConverter = {
         USD: '$'
     },
 
-    // Currency names
+    // Currency names and display text
     names: {
         KZT: 'KZT (₸)',
         RUB: 'RUB (₽)',
         USD: 'USD ($)'
     },
 
+    // Currency cycle order
+    currencyOrder: ['KZT', 'RUB', 'USD'],
     currentCurrency: 'KZT',
 
     /**
@@ -93,13 +96,25 @@ const CurrencyConverter = {
      * @param {string} newCurrency - Target currency code
      */
     updateAllPrices(newCurrency) {
+        console.log('Updating prices to currency:', newCurrency);
         this.currentCurrency = newCurrency;
         const priceElements = document.querySelectorAll('.price-display');
+        console.log('Found price elements:', priceElements.length);
+        
+        if (priceElements.length === 0) {
+            console.warn('No price elements found with class .price-display');
+            return;
+        }
         
         priceElements.forEach(element => {
             const priceInKZT = parseInt(element.dataset.price);
+            if (isNaN(priceInKZT)) {
+                console.warn('Invalid price data:', element.dataset.price);
+                return;
+            }
             const convertedPrice = this.convert(priceInKZT, newCurrency);
             const formatted = this.formatPrice(convertedPrice, newCurrency);
+            console.log(`Converting ${priceInKZT}₸ to ${newCurrency}: ${formatted}`);
             element.textContent = formatted;
             element.dataset.currency = newCurrency;
         });
@@ -112,11 +127,21 @@ const CurrencyConverter = {
     },
 
     /**
-     * Update the currency selector button label
+     * Toggle to next currency (KZT → RUB → USD → KZT)
+     */
+    toggleCurrency() {
+        const currentIndex = this.currencyOrder.indexOf(this.currentCurrency);
+        const nextIndex = (currentIndex + 1) % this.currencyOrder.length;
+        const nextCurrency = this.currencyOrder[nextIndex];
+        this.updateAllPrices(nextCurrency);
+    },
+
+    /**
+     * Update the currency display button label
      * @param {string} currency - Currency code
      */
     updateCurrencyLabel(currency) {
-        const currencyLabel = document.getElementById('selected-currency');
+        const currencyLabel = document.getElementById('currency-display');
         if (currencyLabel) {
             currencyLabel.textContent = this.names[currency] || currency;
         }
@@ -126,33 +151,45 @@ const CurrencyConverter = {
      * Initialize currency conversion system
      */
     init() {
+        console.log('🚀 Initializing CurrencyConverter...');
+        
         // Load user's preferred currency or default to KZT
         const savedCurrency = localStorage.getItem('preferred_currency') || 'KZT';
         this.currentCurrency = savedCurrency;
+        console.log('📊 Saved currency:', savedCurrency);
 
         // Fetch live rates on init
         this.fetchRatesFromAPI();
 
-        // Set up currency selector buttons
-        const currencyDropdown = document.querySelectorAll('[data-currency]');
-        currencyDropdown.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetCurrency = button.dataset.currency;
-                this.updateAllPrices(targetCurrency);
-            });
+        // Set up toggle button
+        const toggleButton = document.getElementById('currencyToggle');
+        if (!toggleButton) {
+            console.error('❌ Currency toggle button not found! ID: currencyToggle');
+            return;
+        }
+        
+        console.log('✅ Toggle button found');
+        
+        toggleButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('� Toggle button clicked');
+            this.toggleCurrency();
         });
 
-        // Initialize with saved currency
-        if (savedCurrency !== 'KZT') {
-            this.updateAllPrices(savedCurrency);
-        } else {
-            this.updateCurrencyLabel('KZT');
-        }
+        // Initialize display with saved currency
+        this.updateCurrencyLabel(savedCurrency);
+        console.log('✅ CurrencyConverter initialized successfully');
     }
 };
 
 // Auto-initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('Initializing CurrencyConverter on DOMContentLoaded');
+        CurrencyConverter.init();
+    });
+} else {
+    // DOM is already loaded
+    console.log('Initializing CurrencyConverter immediately (DOM already loaded)');
     CurrencyConverter.init();
-});
+}
