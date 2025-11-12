@@ -266,12 +266,12 @@ USD: 0.0021 // 1 KZT ≈ 0.0021 USD
 
 ## 👤 Author
 
-**Maqsat**
-- GitHub: [@maqsatto](https://github.com/maqsatto)
-**Daniyal**
-- GitHub: [@hqvnd](https://github.com/hqvnd)
-**Bekzat**
-- GitHub: [@bekgm](https://github.com/bekgm)
+
+- GitHub: [@maqsatto](https://github.com/maqsatto)**Maqsat**
+
+- GitHub: [@hqvnd](https://github.com/hqvnd)**Daniyal**
+
+- GitHub: [@bekgm](https://github.com/bekgm)**Bekzat**
 
 ## 🙏 Acknowledgments
 
